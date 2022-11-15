@@ -1,0 +1,28 @@
+@use 'functions' as f;
+
+$breakpoints-up: (
+  'small': f.em(375),
+  'medium': f.em(768),
+  'large': f.em(900),
+  'xlarge': f.em(1440),
+);
+
+/* need to be less than the above for media queries overlaps */
+$breakpoints-down: (
+  'xsmall': f.em(374.98),
+  'small': f.em(767.98),
+  'medium': f.em(899.98),
+  'large': f.em(1439.98),
+);
+
+@mixin breakpoint($size) {
+  @media (min-width: map-get($breakpoints-up,$size)) {
+    @content;
+  }
+}
+
+@mixin breakpoint-down($size) {
+  @media (max-width: map-get($breakpoints-down,$size)) {
+    @content;
+  }
+}

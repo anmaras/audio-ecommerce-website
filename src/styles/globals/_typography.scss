@@ -1,0 +1,79 @@
+@use '../utils' as *;
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+h1 {
+  font-size: rem(56);
+  line-height: rem(58);
+  letter-spacing: rem(2);
+}
+
+h2 {
+  font-size: rem(40);
+  line-height: rem(44);
+  letter-spacing: rem(1.5);
+}
+h3 {
+  font-size: rem(32);
+  line-height: rem(36);
+  letter-spacing: rem(1.15);
+}
+h4 {
+  font-size: rem(28);
+  line-height: rem(38);
+  letter-spacing: rem(2);
+}
+h5 {
+  font-size: rem(24);
+  line-height: rem(33);
+  letter-spacing: rem(1.7);
+}
+h6 {
+  font-size: rem(18);
+  line-height: rem(24);
+  letter-spacing: rem(1.3);
+}
+
+.overline {
+  font-size: rem(14);
+  line-height: rem(19);
+  letter-spacing: rem(10);
+  font-weight: 400;
+  color: var(--raw-sienna);
+}
+
+.subtitle {
+  font-size: rem(13);
+  line-height: rem(25);
+  letter-spacing: rem(1);
+  font-weight: 700;
+  color: var(--raw-sienna);
+}
+
+body {
+  font-family: $font;
+  font-weight: 500;
+  font-size: rem(15);
+  line-height: rem(25);
+}
+
+.form {
+  &__label {
+    font-size: rem(12);
+    font-weight: 700;
+  }
+  &__input {
+    font-size: rem(14);
+    &::placeholder {
+      font-size: rem(14);
+    }
+  }
+}
