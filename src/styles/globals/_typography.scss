@@ -72,8 +72,23 @@ body {
   }
   &__input {
     font-size: rem(14);
+    font-weight: 700;
     &::placeholder {
       font-size: rem(14);
     }
+  }
+  &__warning {
+    color: red;
+    font-size: rem(12);
+    font-weight: 700;
+  }
+}
+
+.amount {
+  &__number,
+  &__increase,
+  &__decrease {
+    font-weight: 700;
+    font-size: rem(13);
   }
 }
