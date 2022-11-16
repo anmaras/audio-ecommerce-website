@@ -92,3 +92,17 @@ body {
     font-size: rem(13);
   }
 }
+
+.navbar {
+  &__link > a {
+    font-size: rem(13);
+    color: var(--white);
+    text-transform: uppercase;
+    text-decoration: none;
+    font-weight: 500;
+    letter-spacing: rem(1);
+    &:hover {
+      color: var(--raw-sienna);
+    }
+  }
+}
