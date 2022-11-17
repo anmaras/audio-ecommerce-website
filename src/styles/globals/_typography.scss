@@ -1,5 +1,15 @@
 @use '../utils' as *;
 
+@mixin links($color, $font-size, $font-weight) {
+  font-size: $font-size;
+  color: $color;
+  text-align: center;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-weight: $font-weight;
+  letter-spacing: rem(1);
+}
+
 h1,
 h2,
 h3,
@@ -95,14 +105,14 @@ body {
 
 .navbar {
   &__link > a {
-    font-size: rem(13);
-    color: var(--white);
-    text-transform: uppercase;
-    text-decoration: none;
-    font-weight: 500;
-    letter-spacing: rem(1);
+    @include links(var(--white), rem(13), 500);
+
     &:hover {
       color: var(--raw-sienna);
     }
   }
+}
+
+.router-link {
+  @include links(var(--black), rem(15), 700);
 }
