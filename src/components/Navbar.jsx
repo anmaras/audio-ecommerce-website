@@ -17,7 +17,9 @@ const Navbar = () => {
         className="navbar__hamburger"
         onClick={toggleMenu}
       />
-      <img src={logoUrl} alt="audiophile logo" className="navbar__logo" />
+      <Link to="/">
+        <img src={logoUrl} alt="audiophile logo" className="navbar__logo" />
+      </Link>
       <ul className="navbar__linksList">
         {links.map((link) => {
           const { id, text, url } = link;
