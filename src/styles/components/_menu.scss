@@ -2,7 +2,14 @@
 
 .menu.menu--visible {
   transform: translateY(0);
-  z-index: 0;
+  // z-index: 9;
+}
+
+.backdrop.backdrop--visible {
+  transform: translateY(0);
+
+  opacity: 1;
+  // z-index: 8;
 }
 
 .menu {
@@ -10,11 +17,10 @@
   width: 100%;
 
   background-color: var(--white);
-  transform: translateY(-100%);
-  transition: all 0.5s;
-  z-index: -1;
+  transform: translateY(-110%);
+  transition: 0.25s ease-out;
+  z-index: 6;
 
-  padding-inline: rem(26);
   padding-bottom: rem(32);
   padding-top: rem(90);
 
@@ -23,7 +29,6 @@
   overflow: auto;
 
   @include breakpoint(medium) {
-    padding-inline: rem(32);
     padding-bottom: rem(80);
     padding-top: rem(100);
   }
@@ -34,6 +39,8 @@
   &__linksList {
     display: grid;
     gap: rem(64);
+    width: min(100% - rem(60), rem(1440));
+    margin-inline: auto;
 
     @include breakpoint(medium) {
       grid-template-columns: repeat(3, 1fr);
@@ -58,11 +65,6 @@
   }
 }
 
-.backdrop.backdrop--visible {
-  opacity: 1;
-  z-index: 0;
-}
-
 .backdrop {
   position: fixed;
   width: 100%;
@@ -70,8 +72,11 @@
   top: 89px;
   background-color: rgba(0, 0, 0, 0.583);
   opacity: 0;
-  z-index: -1;
-  transition: all 0.5s;
+
+  z-index: 5;
+  transform: translateY(110%);
+
+  transition: transform 0.5s ease-out, opacity 0.5s;
   cursor: pointer;
 
   @include breakpoint(xlarge) {
