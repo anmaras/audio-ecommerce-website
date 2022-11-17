@@ -1,6 +1,8 @@
 @use '../utils' as *;
 
 .navbar {
+  width: min(100%, rem(1440));
+  margin-inline: auto;
   background-color: var(--smoky-black);
   position: sticky;
   top: 0;
@@ -13,6 +15,8 @@
 
   padding-inline: rem(24);
   padding-block: rem(32);
+
+  border-bottom: 1px solid var(--border-grey);
 
   &__hamburger,
   &__cart {
