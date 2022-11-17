@@ -7,7 +7,7 @@ import links from '../utils/constants';
 import { useProductsContext } from '../context/products_context';
 
 const Navbar = () => {
-  const { toggleMenu } = useProductsContext();
+  const { toggleMenu, closeMenu } = useProductsContext();
 
   return (
     <nav className="navbar">
@@ -18,7 +18,12 @@ const Navbar = () => {
         onClick={toggleMenu}
       />
       <Link to="/">
-        <img src={logoUrl} alt="audiophile logo" className="navbar__logo" />
+        <img
+          src={logoUrl}
+          alt="audiophile logo"
+          className="navbar__logo"
+          onClick={closeMenu}
+        />
       </Link>
       <ul className="navbar__linksList">
         {links.map((link) => {
