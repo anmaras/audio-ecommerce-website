@@ -21,9 +21,13 @@ h6 {
 }
 
 h1 {
-  font-size: rem(56);
-  line-height: rem(58);
+  font-size: rem(36);
+  line-height: rem(43.2);
   letter-spacing: rem(2);
+  @include breakpoint(medium) {
+    font-size: rem(56);
+    line-height: rem(67.2);
+  }
 }
 
 h2 {
@@ -58,6 +62,7 @@ h6 {
   letter-spacing: rem(10);
   font-weight: 400;
   color: var(--raw-sienna);
+  text-transform: uppercase;
 }
 
 .subtitle {
@@ -73,6 +78,7 @@ body {
   font-weight: 500;
   font-size: rem(15);
   line-height: rem(25);
+  text-align: center;
 }
 
 .form {
