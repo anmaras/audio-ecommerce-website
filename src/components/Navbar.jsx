@@ -4,13 +4,18 @@ import logoUrl from '../assets/shared/desktop/logo.svg';
 import cartUrl from '../assets/shared/desktop/icon-cart.svg';
 import { Link } from 'react-router-dom';
 import links from '../utils/constants';
+import { useProductsContext } from '../context/products_context';
+
 const Navbar = () => {
+  const { toggleMenu } = useProductsContext();
+
   return (
     <nav className="navbar">
       <img
         src={hamburgerUrl}
         alt="hamburger menu icon"
         className="navbar__hamburger"
+        onClick={toggleMenu}
       />
       <img src={logoUrl} alt="audiophile logo" className="navbar__logo" />
       <ul className="navbar__linksList">
