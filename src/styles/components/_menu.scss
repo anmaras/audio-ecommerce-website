@@ -1,0 +1,80 @@
+@use '../utils' as *;
+
+.menu.menu--visible {
+  transform: translateY(0);
+  z-index: 0;
+}
+
+.menu {
+  position: absolute;
+  width: 100%;
+
+  background-color: var(--white);
+  transform: translateY(-100%);
+  transition: all 0.5s;
+  z-index: -1;
+
+  padding-inline: rem(26);
+  padding-bottom: rem(32);
+  padding-top: rem(90);
+
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  overflow: auto;
+
+  @include breakpoint(medium) {
+    padding-inline: rem(32);
+    padding-bottom: rem(80);
+    padding-top: rem(100);
+  }
+  @include breakpoint(xlarge) {
+    display: none;
+  }
+
+  &__linksList {
+    display: grid;
+    gap: rem(64);
+
+    @include breakpoint(medium) {
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: 1fr;
+      gap: rem(12);
+    }
+  }
+
+  &__link {
+    position: relative;
+    padding-top: rem(100);
+    display: grid;
+    justify-items: center;
+    background-color: var(--grey);
+    border-radius: rem(10);
+  }
+
+  &__thumbnail {
+    position: absolute;
+    max-height: rem(150);
+    bottom: rem(70);
+  }
+}
+
+.backdrop.backdrop--visible {
+  opacity: 1;
+  z-index: 0;
+}
+
+.backdrop {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 89px;
+  background-color: rgba(0, 0, 0, 0.583);
+  opacity: 0;
+  z-index: -1;
+  transition: all 0.5s;
+  cursor: pointer;
+
+  @include breakpoint(xlarge) {
+    display: none;
+  }
+}
