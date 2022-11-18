@@ -30,4 +30,56 @@ const links = [
   },
 ];
 
-export default links;
+const socialLinks = [
+  {
+    id: 1,
+    text: 'facebook',
+    img: '/src/assets/shared/desktop/icon-facebook.svg',
+  },
+  {
+    id: 2,
+    text: 'twitter',
+    img: '/src/assets/shared/desktop/icon-twitter.svg',
+  },
+  {
+    id: 3,
+    text: 'instagram',
+    img: '/src/assets/shared/desktop/icon-instagram.svg',
+  },
+];
+
+const previewProducts = [
+  {
+    id: 1,
+    title: 'zx9',
+    category: 'speakers',
+    description:
+      'Upgrade to premium speakers that are phenomenally built to deliver truly remarkable sound.',
+    mobileImg: '/src/assets/home/mobile/image-speaker-zx9.png',
+    tabletImg: '/src/assets/home/tablet/image-speaker-zx9.png',
+    desktopImg: '/src/assets/home/desktop/image-speaker-zx9.png',
+    decoration: '/src/assets/home/desktop/pattern-circles.svg',
+  },
+  {
+    id: 2,
+    title: 'zx7',
+    category: 'speakers',
+    description: '',
+    mobileImg: '/src/assets/home/mobile/image-speaker-zx7.jpg',
+    tabletImg: '/src/assets/home/tablet/image-speaker-zx7.jpg',
+    desktopImg: '/src/assets/home/desktop/image-speaker-zx7.jpg',
+    decoration: '',
+  },
+  {
+    id: 3,
+    title: 'yx1',
+    category: 'earphones',
+    description: '',
+    mobileImg: '/src/assets/home/mobile/image-earphones-yx1.jpg',
+    tabletImg: '/src/assets/home/tablet/image-earphones-yx1.jpg',
+    desktopImg: '/src/assets/home/desktop/image-earphones-yx1.jpg',
+    decoration: '',
+  },
+];
+
+export { links, socialLinks, previewProducts };
