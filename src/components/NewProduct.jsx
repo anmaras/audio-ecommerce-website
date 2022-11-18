@@ -2,6 +2,7 @@ import React from 'react';
 import mobileUrl from '../assets/home/mobile/image-header.jpg';
 import tabletUrl from '../assets/home/tablet/image-header.jpg';
 import desktopUrl from '../assets/home/desktop/image-hero.jpg';
+import { Link } from 'react-router-dom';
 
 const NewProduct = () => {
   return (
@@ -26,9 +27,12 @@ const NewProduct = () => {
           Experience natural, lifelike audio and exceptional build quality made
           for the passionate music enthusiast.
         </p>
-        <button type="button" className="newProduct__button button-1">
+        <Link
+          className="newProduct__button button-1"
+          to={'products/headphones/xx99-mark-two-headphones'}
+        >
           see product
-        </button>
+        </Link>
       </div>
     </section>
   );
