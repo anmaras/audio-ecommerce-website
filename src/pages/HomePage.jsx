@@ -1,5 +1,5 @@
 import React from 'react';
-import { MenuList, NewProduct, About, Footer } from '../components';
+import { MenuList, NewProduct } from '../components';
 import { useProductsContext } from '../context/products_context';
 import { previewProducts } from '../utils/constants';
 import { Link } from 'react-router-dom';
@@ -23,7 +23,7 @@ export default function HomePage() {
           } = preview;
 
           return (
-            <li key={id} className={`homepage__item ${title}`}>
+            <li key={id} className="homepage__item">
               {decoration ? (
                 <img className="homepage__decoration" src={decoration} alt="" />
               ) : null}
@@ -32,7 +32,7 @@ export default function HomePage() {
                 <source media="(min-width:768px)" srcSet={tabletImg} />
                 <source media="(min-width:375px)" srcSet={mobileImg} />
                 <img
-                  className={`homepage__img ${title}`}
+                  className="homepage__img"
                   src={mobileImg}
                   alt={`${title} ${category} preview image`}
                   loading="lazy"
@@ -45,7 +45,7 @@ export default function HomePage() {
                   </h1>
                   <p className="homepage__description">{description}</p>
                   <Link
-                    className={`homepage__button ${title} button-2`}
+                    className="homepage__button button-2"
                     to={`products/${category}/${title}`}
                   >
                     see product
@@ -53,11 +53,11 @@ export default function HomePage() {
                 </>
               ) : (
                 <div className="homepage__text-wrapper">
-                  <h4 className={`homepage__title ${title}`}>
+                  <h4 className="homepage__title">
                     {title} {category}
                   </h4>
                   <Link
-                    className={`homepage__button ${title} button-2`}
+                    className="homepage__button button-2"
                     to={`products/${category}/${title}`}
                   >
                     see product
