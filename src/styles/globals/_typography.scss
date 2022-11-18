@@ -31,9 +31,13 @@ h1 {
 }
 
 h2 {
-  font-size: rem(40);
-  line-height: rem(44);
+  font-size: rem(28);
+  line-height: rem(33.6);
   letter-spacing: rem(1.5);
+  @include breakpoint(medium) {
+    font-size: rem(40);
+    line-height: rem(48);
+  }
 }
 h3 {
   font-size: rem(32);
@@ -78,7 +82,6 @@ body {
   font-weight: 500;
   font-size: rem(15);
   line-height: rem(25);
-  text-align: center;
 }
 
 .form {
@@ -109,7 +112,7 @@ body {
   }
 }
 
-.navbar {
+.list {
   &__link > a {
     @include links(var(--white), rem(13), 500);
 
