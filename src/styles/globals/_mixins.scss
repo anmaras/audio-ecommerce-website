@@ -1,0 +1,8 @@
+@mixin width-center($width, $margin) {
+  @if $margin {
+    width: min(100% - $margin, $width);
+  } @else {
+    width: min(100%, $width);
+  }
+  margin-inline: auto;
+}

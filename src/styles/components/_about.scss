@@ -1,0 +1,59 @@
+@use '../globals' as g;
+@use '../utils' as u;
+
+.about {
+  margin-block: u.rem(100);
+  @include g.width-center(u.rem(1220), u.rem(64));
+
+  display: grid;
+  align-items: center;
+  gap: u.rem(24);
+
+  @include u.breakpoint(large) {
+    grid-template-columns: repeat(2, auto);
+    grid-template-rows: repeat(2, 1fr);
+  }
+
+  &__picture {
+    @include u.breakpoint(large) {
+      grid-column: 2/3;
+      grid-row: 1/-1;
+    }
+  }
+
+  &__image {
+    border-radius: var(--border-radius);
+  }
+
+  &__title,
+  &__text {
+    @include g.width-center(u.rem(573), $margin: false);
+    @include u.breakpoint(large) {
+      grid-column: 1/2;
+      margin-inline: 0;
+    }
+  }
+
+  &__title {
+    @include u.breakpoint(large) {
+      grid-row: 1/2;
+      align-self: flex-end;
+      text-align: left;
+    }
+  }
+
+  &__span {
+    color: var(--raw-sienna);
+  }
+
+  &__text {
+    color: var(--border-grey);
+    text-align: center;
+
+    @include u.breakpoint(large) {
+      grid-row: 2/3;
+      text-align: left;
+      align-self: flex-start;
+    }
+  }
+}
