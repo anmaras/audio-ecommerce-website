@@ -10,8 +10,11 @@ const NewProduct = () => {
         <source media="(min-width:1220px)" srcSet={desktopUrl} />
         <source media="(min-width:600px)" srcSet={tabletUrl} />
         <source media="(min-width:375px)" srcSet={mobileUrl} />
-        {/* <source media="(min-width:900px)" srcSet={desktopUrl} /> */}
-        <img className="newProduct__img" src={mobileUrl} alt="" />
+        <img
+          className="newProduct__img"
+          src={mobileUrl}
+          alt="xx99 mark 2 headphones image"
+        />
       </picture>
       <div className="newProduct__textWrapper">
         <p className="newProduct__overline overline">new product</p>
