@@ -13,7 +13,7 @@
 }
 
 .menu {
-  position: absolute;
+  position: fixed;
   width: 100%;
 
   background-color: var(--white);
@@ -24,8 +24,8 @@
   padding-bottom: rem(32);
   padding-top: rem(90);
 
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: var(--border-radius);
+  border-bottom-right-radius: var(--border-radius);
   overflow: auto;
 
   @include breakpoint(medium) {
@@ -39,7 +39,7 @@
   &__linksList {
     display: grid;
     gap: rem(64);
-    width: min(100% - rem(60), rem(1440));
+    width: min(100% - rem(60), rem(1220));
     margin-inline: auto;
 
     @include breakpoint(medium) {
@@ -55,7 +55,7 @@
     display: grid;
     justify-items: center;
     background-color: var(--grey);
-    border-radius: rem(10);
+    border-radius: var(--border-radius);
   }
 
   &__thumbnail {
