@@ -29,9 +29,8 @@
     transform: translate(-50%, -50%);
     z-index: -1;
     @include u.breakpoint(large) {
-      grid-template-columns: repeat(2, 1fr);
-      align-items: center;
-      text-align: left;
+      top: 80%;
+      left: 25%;
     }
   }
 
@@ -49,6 +48,7 @@
       grid-template-columns: repeat(2, 1fr);
       align-items: center;
       text-align: left;
+      gap: 0;
     }
   }
 
@@ -73,6 +73,7 @@
     color: var(--white);
     @include u.breakpoint(large) {
       justify-self: flex-start;
+      align-self: flex-end;
     }
   }
 
@@ -98,6 +99,7 @@
     @include u.breakpoint(large) {
       grid-column: 2/-1;
       justify-self: flex-start;
+      align-self: flex-start;
     }
   }
 
