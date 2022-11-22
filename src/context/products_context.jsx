@@ -8,12 +8,13 @@ import {
   GET_PRODUCTS_BEGIN,
   GET_PRODUCTS_SUCCESS,
   GET_PRODUCTS_ERROR,
+  GET_PRODUCTS_CATEGORY,
 } from '../actions/actions';
 
 const initialState = {
   isMenuOpen: false,
   products: [],
-  previewProducts: [],
+  category_products: [],
 };
 
 const ProductsContext = React.createContext();
@@ -44,12 +45,18 @@ export const ProductsProvider = ({ children }) => {
     }
   };
 
+  const getProductsByCategory = (category) => {
+    dispatch({ type: GET_PRODUCTS_CATEGORY, payload: category });
+  };
+
   useEffect(() => {
     fetchProducts();
   }, []);
 
   return (
-    <ProductsContext.Provider value={{ ...state, toggleMenu, closeMenu }}>
+    <ProductsContext.Provider
+      value={{ ...state, toggleMenu, closeMenu, getProductsByCategory }}
+    >
       {children}
     </ProductsContext.Provider>
   );
