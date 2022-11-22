@@ -1,0 +1,59 @@
+@use '../utils' as *;
+
+.header {
+  background-color: var(--smoky-black);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+
+  &__navbar {
+    width: min(100%, rem(1220));
+    margin-inline: auto;
+    background-color: var(--smoky-black);
+
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    place-items: center;
+    gap: rem(32);
+
+    padding-inline: rem(24);
+    padding-block: rem(32);
+
+    border-bottom: 1px solid var(--border-grey);
+
+    @include breakpoint(large) {
+      padding-inline: 0;
+    }
+  }
+  &__hamburger,
+  &__cart {
+    cursor: pointer;
+  }
+
+  &__hamburger {
+    @include breakpoint(xlarge) {
+      display: none;
+    }
+  }
+
+  &__logo {
+    @include breakpoint(large) {
+      justify-self: flex-start;
+    }
+  }
+
+  &__linksList {
+    display: none;
+    @include breakpoint(xlarge) {
+      display: flex;
+      gap: rem(32);
+    }
+  }
+
+  &__cart {
+    @include breakpoint(large) {
+      justify-self: flex-end;
+    }
+  }
+}

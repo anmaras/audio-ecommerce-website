@@ -1,0 +1,12 @@
+@use '../utils/' as u;
+@use '../globals/' as g;
+
+.pageHero {
+  position: relative;
+  top: u.rem(90);
+  background-color: var(--smoky-black);
+  color: var(--white);
+  text-align: center;
+  padding-block: u.rem(38);
+  margin-bottom: calc(u.rem(65) + u.rem(90));
+}

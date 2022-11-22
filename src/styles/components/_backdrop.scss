@@ -1,0 +1,16 @@
+@use '../utils/' as *;
+
+.backdrop {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: rem(90);
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: -1;
+  cursor: pointer;
+
+  @include breakpoint(xlarge) {
+    display: none;
+  }
+}
