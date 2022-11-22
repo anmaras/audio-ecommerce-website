@@ -4,6 +4,7 @@ import {
   GET_PRODUCTS_BEGIN,
   GET_PRODUCTS_SUCCESS,
   GET_PRODUCTS_ERROR,
+  GET_PRODUCTS_CATEGORY,
 } from '../actions/actions';
 
 const product_reducer = (state, action) => {
@@ -15,14 +16,16 @@ const product_reducer = (state, action) => {
   }
 
   if (action.type === GET_PRODUCTS_SUCCESS) {
-    /* function to filter only the main categories from the data array */
-    const previewProducts = Array.from(
-      new Set(action.payload.map((item) => item.category))
-    ).map((category) => {
-      return action.payload.find((item) => item.category === category);
-    });
+    return { ...state, products: action.payload };
+  }
 
-    return { ...state, products: action.payload, previewProducts };
+  if (action.type === GET_PRODUCTS_CATEGORY) {
+    /* make a swallow copy from the main array of products */
+    const products = [...state.products];
+    const categoryProducts = products.filter(
+      (product) => product.category === action.payload
+    );
+    return { ...state, category_products: categoryProducts };
   }
   throw new Error(`No Matching "${action.type}" - action type`);
 };
