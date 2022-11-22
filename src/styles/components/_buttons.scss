@@ -1,6 +1,7 @@
 @use '../utils' as *;
 
 .button {
+  display: inline-block;
   padding-block: rem(11.5);
   text-transform: uppercase;
   font-weight: 700;
