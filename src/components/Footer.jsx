@@ -1,5 +1,5 @@
 import React from 'react';
-import { Logo, CategoriesList } from './index';
+import { Logo, NavbarLinks } from './index';
 import { socialLinks } from '../utils/constants';
 const Footer = () => {
   return (
@@ -7,7 +7,7 @@ const Footer = () => {
       <div className="footer__wrapper">
         <div className="footer__cosmetic"></div>
         <Logo className={'footer__logo'} />
-        <CategoriesList className={'footer__list'} />
+        <NavbarLinks className={'footer__list'} />
         <p className="footer__info">
           Audiophile is an all in one stop to fulfill your audio needs. We're a
           small team of music lovers and sound specialists who are devoted to

@@ -2,10 +2,10 @@ import React from 'react';
 import hamburgerUrl from '../assets/shared/tablet/icon-hamburger.svg';
 import cartUrl from '../assets/shared/desktop/icon-cart.svg';
 import { useProductsContext } from '../context/products_context';
-import { CategoriesList, Logo } from './index';
+import { NavbarLinks, Logo } from './index';
 
 const Navbar = () => {
-  const { toggleMenu, closeMenu } = useProductsContext();
+  const { toggleMenu } = useProductsContext();
 
   return (
     <nav className="navbar">
@@ -16,7 +16,7 @@ const Navbar = () => {
         onClick={toggleMenu}
       />
       <Logo className={'navbar__log'} />
-      <CategoriesList className={'navbar__linksList'} />
+      <NavbarLinks className={'navbar__linksList'} />
       <img src={cartUrl} alt="cart icon" className="navbar__cart" />
     </nav>
   );
