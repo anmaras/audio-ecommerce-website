@@ -15,10 +15,16 @@ const Header = () => {
           alt="hamburger menu icon"
           className="header__hamburger"
           onClick={toggleMenu}
+          loading="lazy"
         />
         <Logo className={'header__log'} />
         <NavbarLinks className={'header__linksList'} />
-        <img src={cartUrl} alt="cart icon" className="header__cart" />
+        <img
+          src={cartUrl}
+          alt="cart icon"
+          className="header__cart"
+          loading="lazy"
+        />
       </nav>
     </header>
   );

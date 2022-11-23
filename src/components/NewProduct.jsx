@@ -16,6 +16,7 @@ const NewProduct = () => {
             className="newProduct__img"
             src={mobileUrl}
             alt="xx99 mark 2 headphones image"
+            loading="lazy"
           />
         </picture>
         <div className="newProduct__textWrapper">

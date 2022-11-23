@@ -17,7 +17,12 @@ const Navbar = () => {
       />
       <Logo className={'navbar__log'} />
       <NavbarLinks className={'navbar__linksList'} />
-      <img src={cartUrl} alt="cart icon" className="navbar__cart" />
+      <img
+        src={cartUrl}
+        alt="cart icon"
+        className="navbar__cart"
+        loading="lazy"
+      />
     </nav>
   );
 };

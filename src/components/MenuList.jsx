@@ -30,7 +30,12 @@ const MenuList = () => {
                 <p className="menuList__title">{category}</p>
                 <button className="menuList__button button-3">
                   shop
-                  <img className="button-3__icon" src={buttonImgUrl} alt="" />
+                  <img
+                    className="button-3__icon"
+                    src={buttonImgUrl}
+                    alt=""
+                    loading="lazy"
+                  />
                 </button>
               </Link>
             </li>

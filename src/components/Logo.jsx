@@ -13,6 +13,7 @@ const Logo = ({ className }) => {
         alt="audiophile logo"
         className={className ? className : 'logo'}
         onClick={closeMenu}
+        loading="lazy"
       />
     </Link>
   );
