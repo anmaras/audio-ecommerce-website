@@ -1,0 +1,55 @@
+@use '../utils/' as *;
+@use '../globals/' as *;
+
+.product,
+.features {
+  margin-bottom: rem(100);
+  @include width-center(rem(1220), rem(48));
+}
+
+.product {
+  display: grid;
+  gap: rem(24);
+  margin-top: rem(16);
+
+  .button {
+    a {
+      color: var(--border-text);
+      text-transform: capitalize;
+      text-decoration: none;
+    }
+  }
+  &__title {
+    color: var(--border-text);
+    max-width: rem(200);
+  }
+  &__price {
+    font-weight: 700;
+    font-size: rem(18);
+  }
+
+  &__wrapper-btn {
+    display: flex;
+    gap: rem(16);
+  }
+}
+
+.features {
+  display: grid;
+  gap: rem(100);
+  &__title {
+    margin-bottom: rem(24);
+  }
+
+  &__list {
+    display: grid;
+  }
+  &__item {
+    display: flex;
+    gap: rem(16);
+  }
+  &__quantity {
+    color: var(--raw-sienna);
+    font-weight: 700;
+  }
+}
