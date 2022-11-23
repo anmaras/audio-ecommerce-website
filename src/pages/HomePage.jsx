@@ -1,6 +1,5 @@
 import React from 'react';
-import { MenuList, NewProduct } from '../components';
-import { useProductsContext } from '../context/products_context';
+import { MenuList, NewProduct, Images } from '../components';
 import { previewProducts } from '../utils/constants';
 import { Link } from 'react-router-dom';
 
@@ -9,65 +8,66 @@ export default function HomePage() {
     <main className="homepage">
       <NewProduct />
       <MenuList />
-      <ul className="homepage__list">
-        {previewProducts.map((preview) => {
-          const {
-            id,
-            title,
-            category,
-            description,
-            mobileImg,
-            tabletImg,
-            desktopImg,
-            decoration,
-          } = preview;
+      <section className="homepage__section--previews">
+        <ul className="homepage__list">
+          {previewProducts.map((preview) => {
+            const {
+              id,
+              title,
+              category,
+              desktop,
+              tablet,
+              mobile,
+              description,
+              decoration,
+            } = preview;
 
-          return (
-            <li key={id} className="homepage__item">
-              {decoration ? (
-                <img className="homepage__decoration" src={decoration} alt="" />
-              ) : null}
-              <picture>
-                <source media="(min-width:1220px)" srcSet={desktopImg} />
-                <source media="(min-width:768px)" srcSet={tabletImg} />
-                <source media="(min-width:375px)" srcSet={mobileImg} />
-                <img
-                  className="homepage__img"
-                  src={mobileImg}
+            const images = { desktop, tablet, mobile };
+
+            return (
+              <li key={id} className="homepage__item">
+                {decoration ? (
+                  <img
+                    className="homepage__decoration"
+                    src={decoration}
+                    alt=""
+                  />
+                ) : null}
+                <Images
+                  images={images}
                   alt={`${title} ${category} preview image`}
-                  loading="lazy"
                 />
-              </picture>
-              {title === 'zx9' ? (
-                <>
-                  <h1 className="homepage__title zx9">
-                    {title} <br /> {category}
-                  </h1>
-                  <p className="homepage__description">{description}</p>
-                  <Link
-                    className="homepage__button button-2"
-                    to={`products/${category}/${title}`}
-                  >
-                    see product
-                  </Link>
-                </>
-              ) : (
-                <div className="homepage__text-wrapper">
-                  <h4 className="homepage__title">
-                    {title} {category}
-                  </h4>
-                  <Link
-                    className="homepage__button button-2"
-                    to={`products/${category}/${title}`}
-                  >
-                    see product
-                  </Link>
-                </div>
-              )}
-            </li>
-          );
-        })}
-      </ul>
+                {title === 'zx9' ? (
+                  <>
+                    <h1 className="homepage__title zx9">
+                      {title} <br /> {category}
+                    </h1>
+                    <p className="homepage__description">{description}</p>
+                    <Link
+                      className="homepage__button button-2"
+                      to={`products/${category}/${title}`}
+                    >
+                      see product
+                    </Link>
+                  </>
+                ) : (
+                  <div className="homepage__text-wrapper">
+                    <h4 className="homepage__title">
+                      {title} {category}
+                    </h4>
+                    <Link
+                      className="homepage__button button-2"
+                      to={`products/${category}/${title}`}
+                    >
+                      see product
+                    </Link>
+                  </div>
+                )}
+              </li>
+            );
+          })}
+        </ul>
+      </section>
     </main>
   );
 }
