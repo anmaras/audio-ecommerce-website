@@ -20,7 +20,7 @@ const Footer = () => {
             const { id, img, text } = link;
             return (
               <li key={id} className="footer__links">
-                <img src={img} alt={text} />
+                <img src={img} alt={text} loading="lazy" />
               </li>
             );
           })}

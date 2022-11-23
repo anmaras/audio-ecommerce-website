@@ -21,7 +21,12 @@ const MenuList = () => {
                   closeMenu();
                 }}
               >
-                <img className="menuList__thumbnail" src={thumbnail} alt="" />
+                <img
+                  className="menuList__thumbnail"
+                  src={thumbnail}
+                  alt=""
+                  loading="lazy"
+                />
                 <p className="menuList__title">{category}</p>
                 <button className="menuList__button button-3">
                   shop
