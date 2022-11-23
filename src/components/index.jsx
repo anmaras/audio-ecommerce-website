@@ -10,8 +10,11 @@ import ProductsList from './ProductsList';
 import PageHero from './PageHero';
 import Header from './Header';
 import Backdrop from './Backdrop';
+import Images from './Images';
+import Product from './Product';
 
 export {
+  Images,
   Navbar,
   NavbarMenu,
   MenuList,
@@ -24,4 +27,5 @@ export {
   PageHero,
   Header,
   Backdrop,
+  Product,
 };

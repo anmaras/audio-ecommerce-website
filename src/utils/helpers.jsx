@@ -1,3 +1,9 @@
 export const imageUrls = (url) => {
-  return `/src${url.substring(1)}`;
+  const input = url.startsWith('/src');
+
+  if (input) {
+    return url;
+  } else {
+    return `/src${url.substring(1)}`;
+  }
 };

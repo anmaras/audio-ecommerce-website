@@ -55,9 +55,9 @@ const previewProducts = [
     category: 'speakers',
     description:
       'Upgrade to premium speakers that are phenomenally built to deliver truly remarkable sound.',
-    mobileImg: '/src/assets/home/mobile/image-speaker-zx9.png',
-    tabletImg: '/src/assets/home/tablet/image-speaker-zx9.png',
-    desktopImg: '/src/assets/home/desktop/image-speaker-zx9.png',
+    mobile: '/src/assets/home/mobile/image-speaker-zx9.png',
+    tablet: '/src/assets/home/tablet/image-speaker-zx9.png',
+    desktop: '/src/assets/home/desktop/image-speaker-zx9.png',
     decoration: '/src/assets/home/desktop/pattern-circles.svg',
   },
   {
@@ -65,9 +65,9 @@ const previewProducts = [
     title: 'zx7',
     category: 'speakers',
     description: '',
-    mobileImg: '/src/assets/home/mobile/image-speaker-zx7.jpg',
-    tabletImg: '/src/assets/home/tablet/image-speaker-zx7.jpg',
-    desktopImg: '/src/assets/home/desktop/image-speaker-zx7.jpg',
+    mobile: '/src/assets/home/mobile/image-speaker-zx7.jpg',
+    tablet: '/src/assets/home/tablet/image-speaker-zx7.jpg',
+    desktop: '/src/assets/home/desktop/image-speaker-zx7.jpg',
     decoration: '',
   },
   {
@@ -75,11 +75,14 @@ const previewProducts = [
     title: 'yx1',
     category: 'earphones',
     description: '',
-    mobileImg: '/src/assets/home/mobile/image-earphones-yx1.jpg',
-    tabletImg: '/src/assets/home/tablet/image-earphones-yx1.jpg',
-    desktopImg: '/src/assets/home/desktop/image-earphones-yx1.jpg',
+    mobile: '/src/assets/home/mobile/image-earphones-yx1.jpg',
+    tablet: '/src/assets/home/tablet/image-earphones-yx1.jpg',
+    desktop: '/src/assets/home/desktop/image-earphones-yx1.jpg',
     decoration: '',
   },
 ];
 
-export { links, socialLinks, previewProducts };
+const productsUrl =
+  'https://audio-data-fc218-default-rtdb.europe-west1.firebasedatabase.app/data.json';
+
+export { links, socialLinks, previewProducts, productsUrl };
