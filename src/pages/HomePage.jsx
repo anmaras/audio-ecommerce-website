@@ -20,6 +20,7 @@ export default function HomePage() {
               mobile,
               description,
               decoration,
+              slug,
             } = preview;
 
             const images = { desktop, tablet, mobile };
@@ -31,6 +32,7 @@ export default function HomePage() {
                     className="homepage__decoration"
                     src={decoration}
                     alt=""
+                    loading="lazy"
                   />
                 ) : null}
                 <Images
@@ -45,7 +47,7 @@ export default function HomePage() {
                     <p className="homepage__description">{description}</p>
                     <Link
                       className="homepage__button button-2"
-                      to={`products/${category}/${title}`}
+                      to={`products/${category}/${slug}`}
                     >
                       see product
                     </Link>
@@ -57,7 +59,7 @@ export default function HomePage() {
                     </h4>
                     <Link
                       className="homepage__button button-2"
-                      to={`products/${category}/${title}`}
+                      to={`products/${category}/${slug}`}
                     >
                       see product
                     </Link>
