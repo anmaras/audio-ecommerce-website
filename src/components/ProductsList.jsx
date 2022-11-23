@@ -1,26 +1,10 @@
 import React from 'react';
 import { useProductsContext } from '../context/products_context';
-import { Link, useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { Images } from './index';
-import { useEffect } from 'react';
-import FadeLoader from 'react-spinners/FadeLoader';
 
 const ProductsList = () => {
-  const { category } = useParams();
-  const {
-    category_products: products,
-    getProductsByCategory,
-    products_loading,
-    category_loading,
-  } = useProductsContext();
-
-  // useEffect(() => {
-  //   getProductsByCategory(category);
-  // }, [category]);
-
-  if (category_loading) {
-    return <FadeLoader />;
-  }
+  const { category_products: products } = useProductsContext();
 
   return (
     <section className="categories">

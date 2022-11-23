@@ -12,8 +12,12 @@ import Header from './Header';
 import Backdrop from './Backdrop';
 import Images from './Images';
 import Product from './Product';
+import Pictures from './Pictures';
+import Amount from './Amount';
 
 export {
+  Amount,
+  Pictures,
   Images,
   Navbar,
   NavbarMenu,
