@@ -59,6 +59,7 @@ const previewProducts = [
     tablet: '/src/assets/home/tablet/image-speaker-zx9.png',
     desktop: '/src/assets/home/desktop/image-speaker-zx9.png',
     decoration: '/src/assets/home/desktop/pattern-circles.svg',
+    slug: 'zx9-speaker',
   },
   {
     id: 2,
@@ -69,6 +70,7 @@ const previewProducts = [
     tablet: '/src/assets/home/tablet/image-speaker-zx7.jpg',
     desktop: '/src/assets/home/desktop/image-speaker-zx7.jpg',
     decoration: '',
+    slug: 'zx7-speaker',
   },
   {
     id: 3,
@@ -79,6 +81,7 @@ const previewProducts = [
     tablet: '/src/assets/home/tablet/image-earphones-yx1.jpg',
     desktop: '/src/assets/home/desktop/image-earphones-yx1.jpg',
     decoration: '',
+    slug: 'yx1-earphones',
   },
 ];
 
