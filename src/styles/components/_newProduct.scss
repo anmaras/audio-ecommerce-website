@@ -2,8 +2,9 @@
 @use '../globals/' as *;
 
 .newProduct {
+  position: relative;
   background-color: var(--smoky-black);
-  top: rem(90);
+  top: rem(-90);
   &__wrapper {
     position: relative;
     display: grid;

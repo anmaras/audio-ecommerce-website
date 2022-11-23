@@ -40,9 +40,13 @@ h2 {
   }
 }
 h3 {
-  font-size: rem(32);
-  line-height: rem(36);
+  font-size: rem(24);
+  line-height: rem(28.8);
   letter-spacing: rem(1.15);
+  @include breakpoint(medium) {
+    font-size: rem(32);
+    line-height: rem(36);
+  }
 }
 h4 {
   font-size: rem(28);
