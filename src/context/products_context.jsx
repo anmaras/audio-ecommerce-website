@@ -1,7 +1,8 @@
 import React, { useContext, useEffect, useReducer } from 'react';
 import reducer from '../reducers/product_reducer';
-import { db } from '../firebase';
-import { ref, child, get } from 'firebase/database';
+import { productsUrl as url } from '../utils/constants';
+import axios from 'axios';
+
 import {
   TOGGLE_MENU,
   CLOSE_MENU,
@@ -9,20 +10,30 @@ import {
   GET_PRODUCTS_SUCCESS,
   GET_PRODUCTS_ERROR,
   GET_PRODUCTS_CATEGORY,
+  GET_PRODUCTS_CATEGORY_BEGIN,
+  GET_PRODUCTS_CATEGORY_ERROR,
+  GET_SINGLE_PRODUCT_SUCCESS,
+  GET_SINGLE_PRODUCT_BEGIN,
+  GET_SINGLE_PRODUCT_ERROR,
 } from '../actions/actions';
 
 const initialState = {
   isMenuOpen: false,
   products: [],
   category_products: [],
+  single_product: {},
+  products_loading: false,
+  products_error: false,
+  product_loading: false,
+  product_error: false,
+  category_loading: false,
+  category_error: false,
 };
 
 const ProductsContext = React.createContext();
 
 export const ProductsProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
-
-  // console.log(state);
 
   const toggleMenu = () => {
     dispatch({ type: TOGGLE_MENU });
@@ -32,30 +43,59 @@ export const ProductsProvider = ({ children }) => {
     dispatch({ type: CLOSE_MENU });
   };
 
-  const fetchProducts = async () => {
-    // dispatch({ type: GET_PRODUCTS_BEGIN });
+  const fetchProducts = async (url) => {
+    dispatch({ type: GET_PRODUCTS_BEGIN });
     try {
-      const dbRef = ref(db);
-      const response = await get(child(dbRef, 'data'));
-      if (response.exists) {
-        dispatch({ type: GET_PRODUCTS_SUCCESS, payload: response.val() });
-      }
+      const response = await axios.get(url);
+      const products = response.data;
+
+      dispatch({ type: GET_PRODUCTS_SUCCESS, payload: products });
     } catch (error) {
       dispatch({ type: GET_PRODUCTS_ERROR });
     }
   };
 
-  const getProductsByCategory = (category) => {
-    dispatch({ type: GET_PRODUCTS_CATEGORY, payload: category });
+  const getProductsByCategory = async (category) => {
+    dispatch({ type: GET_PRODUCTS_CATEGORY_BEGIN });
+    try {
+      const response = await axios.get(url);
+      const products = response.data;
+      dispatch({
+        type: GET_PRODUCTS_CATEGORY,
+        payload: { products, category },
+      });
+    } catch (error) {
+      dispatch({ type: GET_PRODUCTS_CATEGORY_ERROR });
+    }
+  };
+
+  const fetchSingleProduct = async (slug) => {
+    dispatch({ type: GET_SINGLE_PRODUCT_BEGIN });
+    try {
+      const response = await axios.get(url);
+      const products = response.data;
+      dispatch({
+        type: GET_SINGLE_PRODUCT_SUCCESS,
+        payload: { products, slug },
+      });
+    } catch (error) {
+      dispatch({ type: GET_SINGLE_PRODUCT_ERROR });
+    }
   };
 
   useEffect(() => {
-    fetchProducts();
+    fetchProducts(url);
   }, []);
 
   return (
     <ProductsContext.Provider
-      value={{ ...state, toggleMenu, closeMenu, getProductsByCategory }}
+      value={{
+        ...state,
+        toggleMenu,
+        closeMenu,
+        getProductsByCategory,
+        fetchSingleProduct,
+      }}
     >
       {children}
     </ProductsContext.Provider>
