@@ -2,68 +2,72 @@
 @use '../globals/' as g;
 
 .categories {
+  margin-top: u.rem(100);
+  margin-bottom: u.rem(75);
+
+  @include u.breakpoint(medium) {
+    margin-bottom: u.rem(120);
+  }
+  @include u.breakpoint(xlarge) {
+    margin-bottom: u.rem(160);
+  }
+
   &__list {
     @include g.width-center(u.rem(1220), u.rem(60));
-    margin-bottom: u.rem(145);
-
     display: grid;
     gap: u.rem(125);
   }
 
   &__item {
     display: grid;
-    gap: u.rem(32);
     align-items: center;
 
-    @include u.breakpoint(large) {
+    @include u.breakpoint(xlarge) {
       grid-template-columns: repeat(2, 1fr);
-      gap: u.rem(100);
     }
   }
 
   &__item:nth-child(even) {
+    @include u.breakpoint(xlarge) {
+      margin-left: 0;
+    }
+
     picture {
-      @include u.breakpoint(large) {
+      @include u.breakpoint(xlarge) {
         grid-column: 2/-1;
       }
     }
     div {
-      @include u.breakpoint(large) {
+      @include u.breakpoint(xlarge) {
         grid-row: 1/2;
       }
     }
   }
 
-  &__image {
-    border-radius: var(--border-radius);
-    width: 100%;
-  }
-
   &__wrapper {
     display: grid;
-    gap: u.rem(32);
     justify-items: center;
-    @include u.breakpoint(large) {
-      justify-items: flex-start;
-    }
+    text-align: center;
 
-    h2 {
-      text-align: center;
-      width: min-content;
-      @include u.breakpoint(large) {
-        text-align: left;
-      }
+    gap: u.rem(32);
+    margin-top: u.rem(32);
+    @include g.width-center(u.rem(572), $margin: false);
+
+    @include u.breakpoint(xlarge) {
+      justify-items: flex-start;
+      text-align: left;
+      margin-left: u.rem(130);
+      @include g.width-center(u.rem(445), $margin: false);
     }
   }
 
-  &__description {
-    text-align: center;
-    @include u.breakpoint(medium) {
-      max-width: 70%;
-    }
-    @include u.breakpoint(large) {
-      text-align: left;
-      max-width: 80%;
+  &__title {
+    width: min-content;
+  }
+
+  &__item:nth-child(even) > &__wrapper {
+    @include u.breakpoint(xlarge) {
+      margin-left: 0;
     }
   }
 }

@@ -4,6 +4,7 @@
 .footer {
   background-color: var(--smoky-black);
   padding-bottom: u.rem(32);
+  width: 100%;
 
   @include u.breakpoint(medium) {
     padding-bottom: u.rem(48);

@@ -1,9 +1,12 @@
 @use './mixins' as *;
-@use '../utils/' as u;
+@use '../utils/' as *;
 
 #root {
   min-height: 100vh;
   position: relative;
   display: grid;
-  justify-items: center;
+}
+
+main {
+  margin-top: rem(90);
 }

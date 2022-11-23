@@ -1,12 +1,12 @@
 @use '../utils' as *;
+@use '../globals' as *;
 
 .menuList {
   display: grid;
-  align-items: center;
   gap: rem(64);
-  width: min(100% - rem(60), rem(1220));
-  margin-inline: auto;
   margin-top: rem(90);
+
+  @include width-center(rem(1220), rem(64));
 
   @include breakpoint(medium) {
     grid-template-columns: repeat(3, 1fr);

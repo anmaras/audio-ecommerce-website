@@ -6,7 +6,7 @@
   z-index: 50;
   height: 100vh;
   overflow: auto;
-  @include width-center(rem(1220), $margin: false);
+  @include width-center(rem(1440), $margin: false);
 
   @include breakpoint(medium) {
     height: fit-content;

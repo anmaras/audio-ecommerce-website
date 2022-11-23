@@ -2,6 +2,10 @@
 @use '../globals/' as g;
 
 .homepage {
+  &__section--previews {
+    margin-block: u.rem(100);
+  }
+
   &__list {
     margin-top: u.rem(100);
     @include g.width-center(u.rem(1220), u.rem(64));
@@ -17,10 +21,6 @@
     z-index: 0;
   }
 
-  &__img {
-    width: 100%;
-  }
-
   &__decoration {
     position: absolute;
     min-width: 600px;
@@ -28,7 +28,7 @@
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: -1;
-    @include u.breakpoint(large) {
+    @include u.breakpoint(xlarge) {
       top: 80%;
       left: 25%;
     }
@@ -43,35 +43,37 @@
     justify-items: center;
     gap: u.rem(32);
     text-align: center;
+    overflow: hidden;
 
-    @include u.breakpoint(large) {
+    @include u.breakpoint(xlarge) {
       grid-template-columns: repeat(2, 1fr);
       align-items: center;
       text-align: left;
       gap: 0;
+      padding-bottom: 0;
     }
   }
 
   &__item:nth-child(1) > picture {
-    @include u.breakpoint(large) {
+    @include u.breakpoint(xlarge) {
       grid-row: 1/4;
     }
   }
 
-  &__item:nth-child(1) > picture > &__img {
+  &__item:nth-child(1) > picture > img {
     max-width: u.rem(180);
 
-    @include u.breakpoint(large) {
+    @include u.breakpoint(xlarge) {
       max-width: u.rem(400);
       justify-self: center;
       position: relative;
-      top: u.rem(80);
+      bottom: u.rem(-10);
     }
   }
 
   &__item:nth-child(1) > &__title {
     color: var(--white);
-    @include u.breakpoint(large) {
+    @include u.breakpoint(xlarge) {
       justify-self: flex-start;
       align-self: flex-end;
     }
@@ -81,7 +83,7 @@
     color: var(--grey);
     @include g.width-center(u.rem(350), $margin: false);
 
-    @include u.breakpoint(large) {
+    @include u.breakpoint(xlarge) {
       grid-column: 2/-1;
       width: 100%;
       padding-right: u.rem(250);
@@ -96,7 +98,7 @@
       background-color: var(--border-grey);
       outline-color: var(--border-grey);
     }
-    @include u.breakpoint(large) {
+    @include u.breakpoint(xlarge) {
       grid-column: 2/-1;
       justify-self: flex-start;
       align-self: flex-start;
@@ -131,10 +133,6 @@
       grid-template-columns: repeat(2, 1fr);
       grid-template-rows: 1fr;
     }
-  }
-
-  &__item:nth-child(3) > picture > &__img {
-    border-radius: var(--border-radius);
   }
 
   &__item:nth-child(3) > &__text-wrapper {

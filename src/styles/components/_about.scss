@@ -7,38 +7,36 @@
 
   display: grid;
   align-items: center;
-  gap: u.rem(24);
+  justify-items: center;
 
-  @include u.breakpoint(large) {
-    grid-template-columns: repeat(2, auto);
-    grid-template-rows: repeat(2, 1fr);
+  @include u.breakpoint(xlarge) {
+    grid-template-columns: repeat(2, 1fr);
+    justify-items: flex-end;
   }
 
-  &__picture {
-    @include u.breakpoint(large) {
-      grid-column: 2/3;
+  &__text-wrapper {
+    max-width: u.rem(573);
+    @include u.breakpoint(xlarge) {
+      grid-column: 1/2;
       grid-row: 1/-1;
+      justify-self: flex-start;
+      max-width: u.rem(445);
     }
-  }
-
-  &__image {
-    border-radius: var(--border-radius);
   }
 
   &__title,
   &__text {
-    @include g.width-center(u.rem(573), $margin: false);
-    @include u.breakpoint(large) {
-      grid-column: 1/2;
-      margin-inline: 0;
+    text-align: center;
+    @include u.breakpoint(xlarge) {
+      text-align: left;
     }
   }
 
   &__title {
-    @include u.breakpoint(large) {
-      grid-row: 1/2;
-      align-self: flex-end;
-      text-align: left;
+    margin-block: u.rem(48);
+
+    @include u.breakpoint(medium) {
+      margin-bottom: u.rem(26);
     }
   }
 
@@ -48,12 +46,5 @@
 
   &__text {
     color: var(--border-grey);
-    text-align: center;
-
-    @include u.breakpoint(large) {
-      grid-row: 2/3;
-      text-align: left;
-      align-self: flex-start;
-    }
   }
 }
