@@ -55,33 +55,43 @@ export const ProductsProvider = ({ children }) => {
     }
   };
 
-  const getProductsByCategory = async (category) => {
-    dispatch({ type: GET_PRODUCTS_CATEGORY_BEGIN });
-    try {
-      const response = await axios.get(url);
-      const products = response.data;
-      dispatch({
-        type: GET_PRODUCTS_CATEGORY,
-        payload: { products, category },
-      });
-    } catch (error) {
-      dispatch({ type: GET_PRODUCTS_CATEGORY_ERROR });
-    }
+  const getProductsByCategory = (category) => {
+    dispatch({
+      type: GET_PRODUCTS_CATEGORY,
+      payload: category,
+    });
   };
+  // const getProductsByCategory = async (category) => {
+  //   dispatch({ type: GET_PRODUCTS_CATEGORY_BEGIN });
+  //   try {
+  //     const response = await axios.get(url);
+  //     const products = response.data;
+  //     dispatch({
+  //       type: GET_PRODUCTS_CATEGORY,
+  //       payload: { products, category },
+  //     });
+  //   } catch (error) {
+  //     dispatch({ type: GET_PRODUCTS_CATEGORY_ERROR });
+  //   }
+  // };
 
-  const fetchSingleProduct = async (slug) => {
-    dispatch({ type: GET_SINGLE_PRODUCT_BEGIN });
-    try {
-      const response = await axios.get(url);
-      const products = response.data;
-      dispatch({
-        type: GET_SINGLE_PRODUCT_SUCCESS,
-        payload: { products, slug },
-      });
-    } catch (error) {
-      dispatch({ type: GET_SINGLE_PRODUCT_ERROR });
-    }
+  const fetchSingleProduct = (slug) => {
+    dispatch({
+      type: GET_SINGLE_PRODUCT_SUCCESS,
+      payload: slug,
+    });
   };
+  // const fetchSingleProduct = async (slug) => {
+  //   try {
+  //     const data = await state;
+  //     console.log(data);
+
+  //     dispatch({
+  //       type: GET_SINGLE_PRODUCT_SUCCESS,
+  //       payload: slug,
+  //     });
+  //   } catch (error) {}
+  // };
 
   useEffect(() => {
     fetchProducts(url);
