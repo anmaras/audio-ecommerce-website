@@ -10,6 +10,7 @@ import {
   GET_SINGLE_PRODUCT_SUCCESS,
   GET_SINGLE_PRODUCT_BEGIN,
   GET_SINGLE_PRODUCT_ERROR,
+  TOGGLE_CART,
 } from '../actions/actions';
 
 const product_reducer = (state, action) => {
@@ -17,7 +18,11 @@ const product_reducer = (state, action) => {
     return { ...state, isMenuOpen: !state.isMenuOpen };
   }
   if (action.type === CLOSE_MENU) {
-    return { ...state, isMenuOpen: false };
+    return { ...state, isMenuOpen: false, isCartOpen: false };
+  }
+
+  if (action.type === TOGGLE_CART) {
+    return { ...state, isCartOpen: !state.isCartOpen };
   }
 
   if (action.type === GET_PRODUCTS_BEGIN) {
