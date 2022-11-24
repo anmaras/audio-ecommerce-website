@@ -5,7 +5,7 @@ import { useProductsContext } from '../context/products_context';
 import { NavbarLinks, Logo } from './index';
 
 const Header = () => {
-  const { toggleMenu } = useProductsContext();
+  const { toggleMenu, toggleCart } = useProductsContext();
 
   return (
     <header className="header">
@@ -24,6 +24,7 @@ const Header = () => {
           alt="cart icon"
           className="header__cart"
           loading="lazy"
+          onClick={toggleCart}
         />
       </nav>
     </header>
