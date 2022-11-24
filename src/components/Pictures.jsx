@@ -1,17 +1,14 @@
 import React from 'react';
 import { imageUrls } from '../utils/helpers';
+import style from '../styles/components/Pictures.module.scss';
 
 const Pictures = ({ desktop, tablet, mobile, alt }) => {
-  const desktopImg = `/src${desktop?.substring(1)}`;
-  const tabletImg = `/src${tablet?.substring(1)}`;
-  const mobileImg = `/src${mobile?.substring(1)}`;
-
   return (
     <picture>
-      <source media="(min-width:1440px)" srcSet={desktopImg} />
-      <source media="(min-width:768px)" srcSet={tabletImg} />
-      <source media="(min-width:375px)" srcSet={mobileImg} />
-      <img src={mobileImg} alt={alt} loading="lazy" />
+      <source media="(min-width:1440px)" srcSet={imageUrls(desktop)} />
+      <source media="(min-width:768px)" srcSet={imageUrls(tablet)} />
+      <source media="(min-width:375px)" srcSet={imageUrls(mobile)} />
+      <img src={imageUrls(mobile)} alt={alt} loading="lazy" />
     </picture>
   );
 };
