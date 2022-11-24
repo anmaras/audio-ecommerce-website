@@ -15,13 +15,16 @@ import {
   GET_SINGLE_PRODUCT_SUCCESS,
   GET_SINGLE_PRODUCT_BEGIN,
   GET_SINGLE_PRODUCT_ERROR,
+  TOGGLE_CART,
 } from '../actions/actions';
 
 const initialState = {
   isMenuOpen: false,
+  isCartOpen: false,
   products: [],
   category_products: [],
   single_product: {},
+  cart: [],
   products_loading: false,
   products_error: false,
   product_loading: false,
@@ -38,9 +41,13 @@ export const ProductsProvider = ({ children }) => {
   const toggleMenu = () => {
     dispatch({ type: TOGGLE_MENU });
   };
-
   const closeMenu = () => {
     dispatch({ type: CLOSE_MENU });
+  };
+
+  const toggleCart = () => {
+    console.log('test');
+    dispatch({ type: TOGGLE_CART });
   };
 
   const fetchProducts = async (url) => {
@@ -61,19 +68,6 @@ export const ProductsProvider = ({ children }) => {
       payload: category,
     });
   };
-  // const getProductsByCategory = async (category) => {
-  //   dispatch({ type: GET_PRODUCTS_CATEGORY_BEGIN });
-  //   try {
-  //     const response = await axios.get(url);
-  //     const products = response.data;
-  //     dispatch({
-  //       type: GET_PRODUCTS_CATEGORY,
-  //       payload: { products, category },
-  //     });
-  //   } catch (error) {
-  //     dispatch({ type: GET_PRODUCTS_CATEGORY_ERROR });
-  //   }
-  // };
 
   const fetchSingleProduct = (slug) => {
     dispatch({
@@ -81,17 +75,6 @@ export const ProductsProvider = ({ children }) => {
       payload: slug,
     });
   };
-  // const fetchSingleProduct = async (slug) => {
-  //   try {
-  //     const data = await state;
-  //     console.log(data);
-
-  //     dispatch({
-  //       type: GET_SINGLE_PRODUCT_SUCCESS,
-  //       payload: slug,
-  //     });
-  //   } catch (error) {}
-  // };
 
   useEffect(() => {
     fetchProducts(url);
@@ -105,6 +88,7 @@ export const ProductsProvider = ({ children }) => {
         closeMenu,
         getProductsByCategory,
         fetchSingleProduct,
+        toggleCart,
       }}
     >
       {children}
