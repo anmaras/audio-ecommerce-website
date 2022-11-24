@@ -6,3 +6,11 @@
   }
   margin-inline: auto;
 }
+
+@mixin grid($gap) {
+  @if $gap {
+    display: grid;
+    gap: $gap;
+  }
+  display: grid;
+}
