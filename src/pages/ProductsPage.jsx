@@ -5,12 +5,7 @@ import { useProductsContext } from '../context/products_context';
 
 export default function ProductsPage() {
   const { category } = useParams();
-  const {
-    category_products: products,
-    getProductsByCategory,
-    products_loading,
-    category_loading,
-  } = useProductsContext();
+  const { getProductsByCategory } = useProductsContext();
 
   useEffect(() => {
     getProductsByCategory(category);
