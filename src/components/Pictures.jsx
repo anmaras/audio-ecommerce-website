@@ -1,6 +1,5 @@
 import React from 'react';
 import { imageUrls } from '../utils/helpers';
-import style from '../styles/components/Pictures.module.scss';
 
 const Pictures = ({ desktop, tablet, mobile, alt }) => {
   return (
