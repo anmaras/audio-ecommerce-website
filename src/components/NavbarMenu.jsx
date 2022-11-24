@@ -14,8 +14,6 @@ const NavbarMenu = () => {
         </div>
       </div>
     );
-  } else {
-    return null;
   }
 };
 
