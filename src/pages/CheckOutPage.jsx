@@ -1,5 +1,10 @@
 import React from 'react';
+import { Form } from '../components';
 
 export default function CheckOutPage() {
-  return <div>CheckOutPage</div>;
+  return (
+    <main>
+      <Form />
+    </main>
+  );
 }
