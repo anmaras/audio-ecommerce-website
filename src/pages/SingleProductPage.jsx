@@ -1,5 +1,5 @@
 import React from 'react';
-import { Product } from '../components/index';
+import { Product, About } from '../components/index';
 import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useProductsContext } from '../context/products_context';
@@ -15,6 +15,7 @@ export default function SingleProductPage() {
   return (
     <main>
       <Product />
+      <About />
     </main>
   );
 }
