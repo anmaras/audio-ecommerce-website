@@ -1,5 +1,5 @@
 import React from 'react';
-import { MenuList, NewProduct, Images } from '../components';
+import { MenuList, NewProduct, Images, About } from '../components';
 import { previewProducts } from '../utils/constants';
 import { Link } from 'react-router-dom';
 
@@ -70,6 +70,7 @@ export default function HomePage() {
           })}
         </ul>
       </section>
+      <About />
     </main>
   );
 }
