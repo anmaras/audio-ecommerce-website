@@ -78,6 +78,7 @@ $padding: rem(16);
     display: flex;
     align-items: center;
     gap: rem(16);
+
     /* need fixing on focus within */
     &:focus-within {
       outline: 2px solid var(--raw-sienna);
