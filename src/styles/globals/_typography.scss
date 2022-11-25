@@ -79,6 +79,7 @@ h6 {
   letter-spacing: rem(1);
   font-weight: 700;
   color: var(--raw-sienna);
+  text-transform: uppercase;
 }
 
 body {
@@ -93,6 +94,11 @@ body {
     font-size: rem(12);
     font-weight: 700;
   }
+
+  input[type='radio'] + &__label {
+    font-size: rem(14);
+  }
+
   &__input {
     font-size: rem(14);
     font-weight: 700;
