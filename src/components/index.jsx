@@ -14,8 +14,12 @@ import Product from './Product';
 import Pictures from './Pictures';
 import Amount from './Amount';
 import Cart from './Cart';
+import Form from './Form';
+import FormInputs from './FormInputs';
 
 export {
+  FormInputs,
+  Form,
   Cart,
   Amount,
   Pictures,
