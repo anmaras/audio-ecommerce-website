@@ -85,7 +85,123 @@ const previewProducts = [
   },
 ];
 
+const inputs = [
+  {
+    id: 1,
+    category: 'billing details',
+    categoryInput: [
+      {
+        id: 10,
+        name: 'username',
+        type: 'text',
+        placeholder: 'Username',
+        errorMessage: 'Name required',
+        label: 'Name',
+        require: true,
+      },
+      {
+        id: 20,
+        name: 'email',
+        type: 'email',
+        placeholder: 'email',
+        errorMessage: 'Wrong email format',
+        label: 'Email address',
+        require: true,
+      },
+      {
+        id: 30,
+        name: 'phone',
+        type: 'tel',
+        placeholder: '+1 202-555-0136',
+        errorMessage: 'Phone number required',
+        label: 'Phone number',
+        require: true,
+      },
+    ],
+  },
+  {
+    id: 2,
+    category: 'shipping info',
+    categoryInput: [
+      {
+        id: 40,
+        name: 'address',
+        type: 'text',
+        placeholder: '1137 Williams Avenue',
+        errorMessage: 'Address required',
+        label: 'Your address',
+        require: true,
+      },
+      {
+        id: 50,
+        name: 'zip',
+        type: 'text',
+        placeholder: '10001',
+        errorMessage: 'Must be a number',
+        label: 'ZIP Address',
+        require: true,
+      },
+      {
+        id: 60,
+        name: 'city',
+        type: 'text',
+        placeholder: 'New York',
+        errorMessage: 'City required',
+        label: 'ZIP Address',
+        require: true,
+      },
+      {
+        id: 70,
+        name: 'country',
+        type: 'text',
+        placeholder: 'United States',
+        errorMessage: 'Country required',
+        label: 'Country',
+        require: true,
+      },
+    ],
+  },
+  {
+    id: 3,
+    category: 'payment details',
+    categoryInput: [
+      {
+        id: 80,
+        name: 'radio',
+        type: 'radio',
+        placeholder: '',
+        label: 'e-Money',
+      },
+      {
+        id: 90,
+        name: 'radio',
+        type: 'radio',
+        placeholder: '',
+        label: 'Cash on Delivery',
+      },
+      {
+        id: 100,
+        name: 'eMoney_number',
+        type: 'text',
+        placeholder: '238521993',
+        errorMessage: 'e-Money number required',
+        label: 'e-Money Number',
+        require: true,
+      },
+      {
+        id: 110,
+        name: 'eMoney-pin',
+        type: 'text',
+        placeholder: '6891',
+        errorMessage: 'e-Money pin required',
+        label: 'e-Money Pin',
+        require: true,
+      },
+    ],
+  },
+];
+
 const productsUrl =
   'https://audio-data-fc218-default-rtdb.europe-west1.firebasedatabase.app/data.json';
 
-export { links, socialLinks, previewProducts, productsUrl };
+export { links, socialLinks, previewProducts, productsUrl, inputs };
