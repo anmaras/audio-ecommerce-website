@@ -1,7 +1,8 @@
 import React from 'react';
 import { inputs } from '../utils/constants';
-import { FormInputs } from './index';
+import { FormInputs, Summary } from './index';
 import uuid from 'react-uuid';
+import logoUrl from '../assets/checkout/icon-cash-on-delivery.svg';
 import style from '../styles/components/Form.module.scss';
 
 const Form = () => {
@@ -34,6 +35,14 @@ const Form = () => {
             </React.Fragment>
           );
         })}
+        <div className={style['checkout__cashNotification']}>
+          <img src={logoUrl} alt="cash on delivery icon" />
+          <p>
+            The ‘Cash on Delivery’ option enables you to pay in cash when our
+            delivery courier arrives at your residence. Just make sure your
+            address is correct so that your order will not be cancelled.
+          </p>
+        </div>
       </form>
     </section>
   );
