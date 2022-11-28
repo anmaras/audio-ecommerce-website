@@ -1,5 +1,5 @@
 import React from 'react';
-import { Product, About } from '../components/index';
+import { Product, About, GoBackButton } from '../components/index';
 import { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useProductsContext } from '../context/products_context';
@@ -13,9 +13,12 @@ export default function SingleProductPage() {
   }, [id]);
 
   return (
-    <main>
-      <Product />
-      <About />
+    <main className="main singleProduct">
+      <GoBackButton />
+      <section className="main__productPageWrapper">
+        <Product />
+        <About />
+      </section>
     </main>
   );
 }

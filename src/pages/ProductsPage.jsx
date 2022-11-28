@@ -12,11 +12,13 @@ export default function ProductsPage() {
   }, [category]);
 
   return (
-    <main>
+    <main className="main categories">
       <PageHero category={category} />
-      <ProductsList />
-      <MenuList />
-      <About />
+      <section className="main__productsPageWrapper">
+        <ProductsList />
+        <MenuList />
+        <About />
+      </section>
     </main>
   );
 }
