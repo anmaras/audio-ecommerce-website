@@ -1,10 +1,15 @@
 import React from 'react';
-import { MenuList, NewProduct, ProductsPreviews, About } from '../components';
+import {
+  MenuList,
+  HomePageNewProduct,
+  ProductsPreviews,
+  About,
+} from '../components';
 
 export default function HomePage() {
   return (
     <main className="main homepage">
-      <NewProduct />
+      <HomePageNewProduct />
       <section className="main__homePageWrapper">
         <MenuList />
         <ProductsPreviews />
