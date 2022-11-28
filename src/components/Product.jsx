@@ -10,9 +10,6 @@ const Product = () => {
 
   return (
     <>
-      <div className={style.button}>
-        <Link to={`/products/${product?.category}`}>go back</Link>
-      </div>
       <section className={style.product}>
         <Pictures
           desktop={product?.image?.desktop}
@@ -83,6 +80,9 @@ const Product = () => {
           mobile={product?.gallery?.third?.mobile}
         />
       </section>
+
+      {/* alternatives */}
+
       <section className={style.alternatives}>
         <h2 className={style['alternatives__title']}>you may also like</h2>
         <ul className={style['alternatives__list']}>
