@@ -1,11 +1,11 @@
 import NavbarDropMenu from './NavbarDropMenu';
 import MenuList from './MenuList';
-import NewProduct from './NewProduct';
+import HomePageNewProduct from './HomePageNewProduct';
 import About from './About';
 import NavbarLinks from './NavbarLinks';
 import Logo from './Logo';
 import Footer from './Footer';
-import ProductsList from './ProductsList';
+import ProductsCategories from './ProductsCategories';
 import PageHero from './PageHero';
 import Header from './Header';
 import Backdrop from './Backdrop';
@@ -30,12 +30,12 @@ export {
   Pictures,
   NavbarDropMenu,
   MenuList,
-  NewProduct,
+  HomePageNewProduct,
   About,
   NavbarLinks,
   Logo,
   Footer,
-  ProductsList,
+  ProductsCategories,
   PageHero,
   Header,
   Backdrop,
