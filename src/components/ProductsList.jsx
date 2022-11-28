@@ -1,7 +1,7 @@
 import React from 'react';
 import { useProductsContext } from '../context/products_context';
 import { Link } from 'react-router-dom';
-import { Images } from './index';
+import { Pictures } from './index';
 
 const ProductsList = () => {
   const { category_products: products } = useProductsContext();
@@ -19,11 +19,14 @@ const ProductsList = () => {
             category,
           } = product;
 
-          const images = { desktop, tablet, mobile };
-
           return (
             <li className="categories__item" key={id}>
-              <Images images={images} alt={`${name} picture`} />
+              <Pictures
+                desktop={desktop}
+                tablet={tablet}
+                mobile={mobile}
+                alt={`${name} picture`}
+              />
               <div className="categories__wrapper">
                 <p className="overline">new product</p>
                 <h2 className="categories__title">{name}</h2>
