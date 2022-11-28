@@ -7,7 +7,39 @@
   display: grid;
 }
 
-main {
-  margin-top: rem(90);
+.main.categories,
+.main.singleProduct,
+.main.checkout {
+  /* calculate top from header height */
+  /* class at pages jsx */
+  position: relative;
+  top: rem(90);
+}
+
+.main {
   background-color: var(--light-grey);
+  &__homePageWrapper,
+  &__productsPageWrapper,
+  &__productPageWrapper,
+  &__checkoutPageWrapper {
+    @include width-center(rem(1220), rem(45));
+    margin-top: rem(65);
+    margin-bottom: rem(130);
+  }
+
+  &__productPageWrapper,
+  &__productsPageWrapper,
+  &__homePageWrapper {
+    display: grid;
+    gap: rem(100);
+  }
+
+  &__checkoutPageWrapper {
+    display: grid;
+    gap: rem(32);
+
+    @include breakpoint(xlarge) {
+      grid-template-columns: 2fr 1fr;
+    }
+  }
 }
