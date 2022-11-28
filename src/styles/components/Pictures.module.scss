@@ -1,8 +1,8 @@
-picture {
+.picture {
   overflow: hidden;
   border-radius: var(--border-radius);
 
-  img {
+  &__img {
     width: 100%;
     height: 100%;
     object-fit: cover;

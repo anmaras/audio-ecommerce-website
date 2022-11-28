@@ -2,18 +2,7 @@
 @use '../globals/' as g;
 
 .categories {
-  margin-top: u.rem(100);
-  margin-bottom: u.rem(75);
-
-  @include u.breakpoint(medium) {
-    margin-bottom: u.rem(120);
-  }
-  @include u.breakpoint(xlarge) {
-    margin-bottom: u.rem(160);
-  }
-
   &__list {
-    @include g.width-center(u.rem(1220), u.rem(60));
     display: grid;
     gap: u.rem(125);
   }

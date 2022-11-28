@@ -1,28 +1,6 @@
 @use '../utils/' as *;
 @use '../globals/' as *;
 
-.product,
-.features,
-.gallery,
-.alternatives,
-.button {
-  margin-bottom: rem(100);
-  @include width-center(rem(1220), rem(48));
-
-  @include breakpoint(medium) {
-    @include width-center(rem(1220), rem(64));
-  }
-}
-
-.button {
-  margin-block: rem(16);
-  a {
-    color: var(--border-text);
-    text-transform: capitalize;
-    text-decoration: none;
-  }
-}
-
 /* product */
 
 .product {
@@ -115,6 +93,8 @@
   }
 }
 
+/* gallery */
+
 .gallery {
   @include grid(rem(16));
   @include breakpoint(medium) {
@@ -123,12 +103,13 @@
 
   picture:nth-child(3) {
     @include breakpoint(medium) {
-      background-color: red;
       grid-column: 2/-1;
       grid-row: 1/3;
     }
   }
 }
+
+/* alternatives */
 
 .alternatives {
   display: grid;
