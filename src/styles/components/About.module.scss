@@ -1,0 +1,47 @@
+@use '../globals' as *;
+@use '../utils' as *;
+
+.about {
+  display: grid;
+  align-items: center;
+  justify-items: center;
+
+  @include breakpoint(xlarge) {
+    grid-template-columns: repeat(2, 1fr);
+    justify-items: flex-end;
+  }
+
+  &__text-wrapper {
+    max-width: rem(573);
+    @include breakpoint(xlarge) {
+      grid-column: 1/2;
+      grid-row: 1/-1;
+      justify-self: flex-start;
+      max-width: rem(445);
+    }
+  }
+
+  &__title,
+  &__text {
+    text-align: center;
+    @include breakpoint(xlarge) {
+      text-align: left;
+    }
+  }
+
+  &__title {
+    margin-block: rem(48);
+
+    @include breakpoint(medium) {
+      margin-bottom: rem(26);
+    }
+  }
+
+  &__span {
+    color: var(--raw-sienna);
+  }
+
+  &__text {
+    color: var(--border-grey);
+  }
+}

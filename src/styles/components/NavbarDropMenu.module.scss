@@ -1,0 +1,32 @@
+@use '../utils' as *;
+@use '../globals/' as *;
+
+.menuWrapper {
+  position: fixed;
+  /* calculate top from header height */
+  top: rem(90);
+  bottom: 0;
+  z-index: 50;
+  overflow: auto;
+  @include width-center(rem(1440), $margin: false);
+
+  @include breakpoint(medium) {
+    height: fit-content;
+  }
+}
+
+.menu {
+  background-color: var(--white);
+  padding-block: rem(32);
+  padding-inline: rem(22.5);
+  border-bottom-left-radius: var(--border-radius);
+  border-bottom-right-radius: var(--border-radius);
+
+  @include breakpoint(medium) {
+    padding-block: rem(80);
+    padding-inline: rem(45);
+  }
+  @include breakpoint(xlarge) {
+    display: none;
+  }
+}

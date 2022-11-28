@@ -1,0 +1,8 @@
+@use '../utils/' as *;
+
+.pageHero {
+  background-color: var(--smoky-black);
+  color: var(--white);
+  text-align: center;
+  padding-block: rem(38);
+}

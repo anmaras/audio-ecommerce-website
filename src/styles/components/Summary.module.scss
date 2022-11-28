@@ -1,0 +1,89 @@
+@use '../utils/' as *;
+@use '../globals/' as *;
+
+.summary {
+  &__wrapper {
+    background-color: var(--white);
+    display: grid;
+    gap: rem(24);
+    padding-block: rem(35);
+    padding-inline: rem(25);
+    border-radius: var(--border-radius);
+  }
+
+  &__header {
+    p {
+      text-transform: uppercase;
+      font-size: rem(18);
+      font-weight: 700;
+    }
+    button {
+      border: 0;
+      background-color: transparent;
+      text-decoration: underline;
+      text-transform: capitalize;
+      color: var(--footer-text);
+      cursor: pointer;
+
+      &:hover {
+        color: var(--raw-sienna);
+      }
+    }
+  }
+
+  &__list {
+    display: grid;
+    gap: rem(24);
+  }
+
+  &__item {
+    display: grid;
+    grid-template-columns: 25% 1fr 1fr;
+    grid-template-rows: 1fr;
+    align-items: center;
+    gap: rem(16);
+  }
+
+  &__image {
+    border-radius: var(--border-radius);
+  }
+
+  &__product {
+    p:nth-child(1) {
+      text-transform: uppercase;
+      font-size: rem(15);
+      font-weight: 700;
+    }
+    p:nth-child(2) {
+      text-transform: uppercase;
+      font-size: rem(15);
+      font-weight: 700;
+      color: var(--footer-text);
+    }
+  }
+
+  &__quantity {
+    color: var(--footer-text);
+    font-weight: 700;
+    justify-self: flex-end;
+  }
+
+  &__totals {
+    div {
+      display: flex;
+      justify-content: space-between;
+      margin-block: rem(5);
+      p:nth-child(1) {
+        text-transform: uppercase;
+        color: var(--footer-text);
+      }
+      p:nth-child(2) {
+        font-size: rem(18);
+        font-weight: 700;
+      }
+    }
+    div:last-child {
+      margin-block: rem(20);
+    }
+  }
+}

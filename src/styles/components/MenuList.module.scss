@@ -1,0 +1,40 @@
+@use '../utils' as *;
+@use '../globals' as *;
+
+.menuList {
+  display: grid;
+  gap: rem(24);
+
+  @include breakpoint(medium) {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 1fr;
+    gap: rem(24);
+  }
+
+  &__link {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    justify-items: center;
+    border-radius: var(--border-radius);
+  }
+
+  &__bg {
+    border-radius: var(--border-radius);
+    position: absolute;
+    background-color: var(--grey);
+    width: 100%;
+    height: 75%;
+    bottom: 0;
+    z-index: -1;
+  }
+
+  &__title {
+    color: var(--black);
+    font-weight: 700;
+  }
+
+  &__thumbnail {
+    max-height: rem(150);
+  }
+}
