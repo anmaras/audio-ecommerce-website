@@ -3,25 +3,30 @@
 
 .cart {
   position: fixed;
-  top: rem(116);
+  top: 0;
   left: 50%;
   transform: translate(-50%);
-  width: 100%;
-  @include width-center(rem(1220), rem(45));
-  background-color: green;
   z-index: 100;
+
   display: grid;
-  overflow: auto;
+
+  @include width-center(rem(1220), rem(45));
 
   &__wrapper {
-    overflow: auto;
     background-color: var(--white);
+
     justify-self: flex-end;
-    width: min(100%, rem(385));
+    align-self: start;
+
+    position: relative;
+    top: rem(116);
+    z-index: 999;
     padding: rem(32);
+    max-height: calc(100vh - rem(140));
 
     display: grid;
     gap: rem(24);
+    overflow: auto;
 
     border-radius: var(--border-radius);
   }
@@ -100,5 +105,9 @@
   background-color: rgba(0, 0, 0, 0.5);
   width: 100vw;
   height: 100vh;
+  transform: translate(-50%);
+  left: 50%;
+  // top: 0;
+  // bottom: 0;
   z-index: 99;
 }
