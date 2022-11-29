@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { useProductsContext } from '../context/products_context';
 
 const Logo = ({ className }) => {
-  const { closeMenu } = useProductsContext();
+  const { closeMenu, closeCart } = useProductsContext();
 
   return (
     <Link to="/">
@@ -12,7 +12,10 @@ const Logo = ({ className }) => {
         src={logoUrl}
         alt="audiophile logo"
         className={className ? className : 'logo'}
-        onClick={closeMenu}
+        onClick={() => {
+          closeMenu();
+          closeCart();
+        }}
         loading="lazy"
       />
     </Link>
