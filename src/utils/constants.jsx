@@ -50,7 +50,7 @@ const socialLinks = [
 
 const previewProducts = [
   {
-    id: 1,
+    id: 5,
     title: 'zx9',
     category: 'speakers',
     description:
@@ -62,7 +62,7 @@ const previewProducts = [
     slug: 'zx9-speaker',
   },
   {
-    id: 2,
+    id: 4,
     title: 'zx7',
     category: 'speakers',
     description: '',
@@ -73,7 +73,7 @@ const previewProducts = [
     slug: 'zx7-speaker',
   },
   {
-    id: 3,
+    id: 0,
     title: 'yx1',
     category: 'earphones',
     description: '',
@@ -204,4 +204,7 @@ const inputs = [
 const productsUrl =
   'https://audio-data-fc218-default-rtdb.europe-west1.firebasedatabase.app/data.json';
 
-export { links, socialLinks, previewProducts, productsUrl, inputs };
+const productId =
+  'https://audio-data-fc218-default-rtdb.europe-west1.firebasedatabase.app/data';
+
+export { links, socialLinks, previewProducts, productsUrl, inputs, productId };
