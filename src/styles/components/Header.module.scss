@@ -6,10 +6,10 @@
   position: fixed;
   top: 0;
   width: 100%;
-  z-index: 100;
+  z-index: 1000;
 
   &__navbar {
-    @include width-center(rem(1220), rem(64));
+    @include width-center(rem(1220), rem(45));
 
     background-color: var(--smoky-black);
 
