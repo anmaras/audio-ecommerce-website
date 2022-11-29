@@ -88,15 +88,12 @@ const Product = () => {
         <ul className={style['alternatives__list']}>
           {product?.others?.map((other, index) => {
             const { desktop, tablet, mobile } = other?.image;
-            const { name, slug } = other;
+            const { name, slug, category } = other;
             return (
               <li className={style['alternatives__item']} key={index}>
                 <Pictures desktop={desktop} tablet={tablet} mobile={mobile} />
                 <h5>{name}</h5>
-                <Link
-                  to={`/products/${product.category}/${slug}`}
-                  className="button-1"
-                >
+                <Link to={`/products/${category}/${slug}`} className="button-1">
                   see product
                 </Link>
               </li>
