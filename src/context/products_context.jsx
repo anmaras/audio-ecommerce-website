@@ -16,6 +16,7 @@ import {
   GET_SINGLE_PRODUCT_BEGIN,
   GET_SINGLE_PRODUCT_ERROR,
   TOGGLE_CART,
+  CLOSE_CART,
 } from '../actions/actions';
 
 const initialState = {
@@ -46,8 +47,11 @@ export const ProductsProvider = ({ children }) => {
   };
 
   const toggleCart = () => {
-    console.log('test');
     dispatch({ type: TOGGLE_CART });
+  };
+
+  const closeCart = () => {
+    dispatch({ type: CLOSE_CART });
   };
 
   const fetchProducts = async (url) => {
@@ -89,6 +93,7 @@ export const ProductsProvider = ({ children }) => {
         getProductsByCategory,
         fetchSingleProduct,
         toggleCart,
+        closeCart,
       }}
     >
       {children}
