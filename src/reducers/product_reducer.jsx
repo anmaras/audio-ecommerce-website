@@ -11,18 +11,23 @@ import {
   GET_SINGLE_PRODUCT_BEGIN,
   GET_SINGLE_PRODUCT_ERROR,
   TOGGLE_CART,
+  CLOSE_CART,
 } from '../actions/actions';
 
 const product_reducer = (state, action) => {
   if (action.type === TOGGLE_MENU) {
-    return { ...state, isMenuOpen: !state.isMenuOpen };
+    return { ...state, isMenuOpen: !state.isMenuOpen, isCartOpen: false };
   }
   if (action.type === CLOSE_MENU) {
-    return { ...state, isMenuOpen: false, isCartOpen: false };
+    return { ...state, isMenuOpen: false };
+  }
+
+  if (action.type === CLOSE_CART) {
+    return { ...state, isCartOpen: false };
   }
 
   if (action.type === TOGGLE_CART) {
-    return { ...state, isCartOpen: !state.isCartOpen };
+    return { ...state, isCartOpen: !state.isCartOpen, isMenuOpen: false };
   }
 
   if (action.type === GET_PRODUCTS_BEGIN) {
