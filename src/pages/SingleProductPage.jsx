@@ -5,7 +5,7 @@ import { useParams } from 'react-router-dom';
 import { useProductsContext } from '../context/products_context';
 
 export default function SingleProductPage() {
-  const { id } = useParams();
+  const { id, category } = useParams();
   const { fetchSingleProduct } = useProductsContext();
 
   useEffect(() => {
@@ -14,7 +14,7 @@ export default function SingleProductPage() {
 
   return (
     <main className="main singleProduct">
-      <GoBackButton />
+      <GoBackButton category={`/products/${category}`} />
       <section className="main__productPageWrapper">
         <Product />
         <About />
