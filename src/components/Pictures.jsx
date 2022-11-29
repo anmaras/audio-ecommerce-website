@@ -11,7 +11,6 @@ const Pictures = ({ desktop, tablet, mobile, alt }) => {
       <img
         src={imageUrls(mobile)}
         alt={alt}
-        loading="lazy"
         className={style['picture__img']}
       />
     </picture>
