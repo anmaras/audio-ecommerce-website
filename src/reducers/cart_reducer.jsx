@@ -63,21 +63,23 @@ const cart_reducer = (state, action) => {
   }
 
   if (action.type === COUNT_CART_TOTALS) {
-    const { total_items, total_amount } = state.cart.reduce(
+    const { total_items, total_amount, total_vat } = state.cart.reduce(
       (total, cartItem) => {
         const { amount, price } = cartItem;
         /* add the amount of items to total items */
         total.total_items += amount;
         /* get the total price */
         total.total_amount += amount * price;
+        /* calculate the vat based the amount  */
+        total.total_vat = total.total_amount * state.vat;
         /* return the total obj */
         return total;
       },
       /* initial obj */
-      { total_items: 0, total_amount: 0 }
+      { total_items: 0, total_amount: 0, total_vat: 0 }
     );
     /* return the state from the deconstruction of the reducer */
-    return { ...state, total_items, total_amount };
+    return { ...state, total_items, total_amount, total_vat };
   }
 
   if (action.type === CLEAR_CART) {
