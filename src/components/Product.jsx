@@ -1,12 +1,22 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useProductsContext } from '../context/products_context';
 import { Pictures, Amount } from '../components/index';
 import style from '../styles/components/Product.module.scss';
 import { formatPrice, splitText } from '../utils/helpers';
-
+import { useCartContext } from '../context/cart_context';
 const Product = () => {
   const { single_product: product } = useProductsContext();
+  const { addToCart } = useCartContext();
+  const [amount, setAmount] = useState(1);
+
+  const increase = () => {
+    setAmount((prev) => (prev === amount ? prev + 1 : amount));
+  };
+
+  const decrease = () => {
+    setAmount((prev) => (prev > 1 ? prev - 1 : 1));
+  };
 
   return (
     <>
@@ -27,8 +37,12 @@ const Product = () => {
             {formatPrice(product?.price)}
           </p>
           <div className={style['product__wrapper-btn']}>
-            <Amount />
-            <button type="button" className="button-1">
+            <Amount increase={increase} decrease={decrease} amount={amount} />
+            <button
+              type="button"
+              className="button-1"
+              onClick={() => addToCart(product, amount, product?.id)}
+            >
               add to cart
             </button>
           </div>
