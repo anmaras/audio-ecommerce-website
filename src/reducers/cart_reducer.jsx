@@ -58,6 +58,7 @@ const cart_reducer = (state, action) => {
         return item;
       }) // if amount is lower than 1 remove it from the cart
       .filter((cartItem) => cartItem.amount !== 0);
+
     return { ...state, cart: tempCart };
   }
 
