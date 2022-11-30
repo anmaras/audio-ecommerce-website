@@ -10,7 +10,12 @@ import uuid from 'react-uuid';
 
 const Cart = () => {
   const { isCartOpen, toggleCart, closeCart } = useProductsContext();
-  const { cart, clearCart, toggleAmount } = useCartContext();
+  const {
+    cart,
+    clearCart,
+    toggleAmount,
+    total_amount: total,
+  } = useCartContext();
 
   if (isCartOpen) {
     return (
@@ -32,7 +37,7 @@ const Cart = () => {
                     <img src={image} alt={name} />
                     <div>
                       <p>{formatName(name)}</p>
-                      <p>{formatPrice(price)}</p>
+                      <p>{formatPrice(price * amount)}</p>
                     </div>
                     <Amount
                       amount={amount}
@@ -45,7 +50,7 @@ const Cart = () => {
             </ul>
             <div className={style['cart__total']}>
               <p>total</p>
-              <p>$ 5,323</p>
+              <p>{formatPrice(total)}</p>
             </div>
             <Link to={'/checkout'} className="button-1" onClick={toggleCart}>
               checkout
