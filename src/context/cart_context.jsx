@@ -15,7 +15,7 @@ const getLocalStorage = () => {
 };
 
 const initialState = {
-  cart: [],
+  cart: getLocalStorage(),
   total_items: 0,
   total_amount: 0,
   shipping_fee: 50,
@@ -38,10 +38,12 @@ export const CartProvider = ({ children }) => {
     dispatch({ type: CLEAR_CART });
   };
 
-  // useEffect(() => {
-  //   dispatch({ type: COUNT_CART_TOTALS });
-  //   localStorage.setItem('cart', JSON.stringify(state.cart));
-  // }, [state.cart]);
+  /* every time the state.cart changes use the dispatch
+  and update the local storage */
+  useEffect(() => {
+    dispatch({ type: COUNT_CART_TOTALS });
+    localStorage.setItem('cart', JSON.stringify(state.cart));
+  }, [state.cart]);
 
   console.log(state);
   return (
