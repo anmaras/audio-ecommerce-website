@@ -30,18 +30,27 @@ export const CartProvider = ({ children }) => {
     dispatch({ type: ADD_TO_CART, payload: { product, amount, id } });
   };
 
-  console.log(state);
+  const toggleAmount = (id, value) => {
+    dispatch({ type: TOGGLE_CART_ITEM_AMOUNT, payload: { id, value } });
+  };
+
+  const clearCart = () => {
+    dispatch({ type: CLEAR_CART });
+  };
 
   // useEffect(() => {
   //   dispatch({ type: COUNT_CART_TOTALS });
   //   localStorage.setItem('cart', JSON.stringify(state.cart));
   // }, [state.cart]);
 
+  console.log(state);
   return (
     <CartContext.Provider
       value={{
         ...state,
         addToCart,
+        clearCart,
+        toggleAmount,
       }}
     >
       {children}
