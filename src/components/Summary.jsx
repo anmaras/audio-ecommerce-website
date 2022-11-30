@@ -1,10 +1,17 @@
 import React from 'react';
 import style from '../styles/components/Summary.module.scss';
-import img1 from '../assets/cart/image-xx99-mark-two-headphones.jpg';
-import { Amount } from './index';
 import { Link } from 'react-router-dom';
+import { useCartContext } from '../context/cart_context';
+import { formatName, formatPrice } from '../utils/helpers';
+import uuid from 'react-uuid';
 
 const Summary = () => {
+  const {
+    cart,
+    shipping_fee: shipping,
+    total_vat: vat,
+    total_amount: total,
+  } = useCartContext();
   return (
     <section className={style.summary}>
       <article className={style['summary__wrapper']}>
@@ -12,33 +19,42 @@ const Summary = () => {
           <p>summary</p>
         </section>
         <ul className={style['summary__list']}>
-          <li className={style['summary__item']}>
-            <img className={style['summary__image']} src={img1} alt="" />
-            <div className={style['summary__product']}>
-              <p>xx99 mk ii</p>
-              <p>$ 2,999</p>
-            </div>
-            <div className={style['summary__quantity']}>
-              <p>x1</p>
-            </div>
-          </li>
+          {cart.map((item) => {
+            const { amount, image, name, vat, total_price, price } = item;
+            return (
+              <li key={uuid()} className={style['summary__item']}>
+                <img
+                  className={style['summary__image']}
+                  src={image}
+                  alt={name}
+                />
+                <div className={style['summary__product']}>
+                  <p>{formatName(name)}</p>
+                  <p>{formatPrice(price)}</p>
+                </div>
+                <div className={style['summary__quantity']}>
+                  <p>x {amount}</p>
+                </div>
+              </li>
+            );
+          })}
         </ul>
         <div className={style['summary__totals']}>
           <div>
             <p>total</p>
-            <p>$ 5,323</p>
+            <p>{formatPrice(total)}</p>
           </div>
           <div>
             <p>shipping</p>
-            <p>$ 50</p>
+            <p>{formatPrice(shipping)}</p>
           </div>
           <div>
             <p>vat (included)</p>
-            <p>$ 100</p>
+            <p>{formatPrice(vat)}</p>
           </div>
           <div>
             <p>grand total</p>
-            <p>$ 5,446</p>
+            <p>{formatPrice(total + vat)}</p>
           </div>
         </div>
         <Link to={'/checkout'} className="button-1">
