@@ -23,3 +23,12 @@ export const splitText = (text) => {
     }
   });
 };
+
+export const formatName = (name) => {
+  if (name) {
+    const newName = name.split(' ');
+    newName.pop();
+
+    return newName.join(' ');
+  }
+};
