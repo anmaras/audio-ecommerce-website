@@ -54,7 +54,7 @@ const Summary = () => {
           </div>
           <div>
             <p>grand total</p>
-            <p>{formatPrice(total + vat)}</p>
+            <p>{formatPrice(total + shipping)}</p>
           </div>
         </div>
         <Link to={'/checkout'} className="button-1">
