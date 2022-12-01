@@ -2,11 +2,9 @@
 @use '../globals/' as *;
 
 .checkout {
-  background-color: var(--white);
-  border-radius: var(--border-radius);
-
-  padding-block: rem(35);
-  padding-inline: rem(25);
+  &__input--error {
+    background-color: red;
+  }
 
   &__title {
     margin-bottom: rem(48);
@@ -14,6 +12,21 @@
 
   &__form {
     display: grid;
+    gap: rem(32);
+
+    @include breakpoint(xlarge) {
+      grid-template-columns: 2fr 1fr;
+      align-items: flex-start;
+    }
+  }
+
+  &__fieldset--inputs,
+  &__fieldset--summary {
+    background-color: var(--white);
+    border-radius: var(--border-radius);
+    padding-block: rem(35);
+    padding-inline: rem(25);
+    border: 0;
   }
 
   &__formControlsWrapper {
@@ -25,12 +38,18 @@
   &__formControls:not(&__formControls:has(input[type='radio'])) {
     display: grid;
     grid-template-columns: auto 1fr;
-    grid-template-rows: repeat(2, auto);
+    // grid-template-rows: repeat(2, auto);
     align-items: center;
 
     label {
       grid-column: 1/2;
       cursor: pointer;
+    }
+
+    p {
+      justify-self: end;
+      grid-column: 2/-1;
+      grid-row: 1/1;
     }
 
     input {
@@ -39,18 +58,19 @@
       grid-column: 1/-1;
       padding: rem(16);
       border-radius: var(--border-radius);
-      border: thin solid var(--normal-grey);
+      border: 2px solid var(--normal-grey);
       caret-color: var(--raw-sienna);
 
       &:focus {
         outline-color: var(--raw-sienna);
       }
-    }
-    p {
-      justify-self: end;
-      &::after {
-        content: '!';
-      }
+
+      // &:invalid[focused='true'] {
+      //   border-color: red;
+      // }
+      // &:invalid[focused='true'] ~ p {
+      //   display: block;
+      // }
     }
   }
 
@@ -78,8 +98,9 @@
       margin: 0;
       padding: 0;
       width: rem(20);
-      border: 2px;
+      border: 1px solid var(--normal-grey);
       border-radius: 50%;
+      border-style: solid;
       aspect-ratio: 1;
       cursor: pointer;
 
@@ -92,5 +113,15 @@
 
   &__subtitle {
     margin-bottom: rem(28);
+  }
+
+  &__cashNotification {
+    display: grid;
+    justify-items: center;
+    gap: rem(32);
+
+    @include breakpoint(xlarge) {
+      grid-template-columns: auto 1fr;
+    }
   }
 }
