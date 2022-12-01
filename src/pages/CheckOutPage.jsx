@@ -1,10 +1,12 @@
 import React from 'react';
-import { Form, GoBackButton, Summary } from '../components';
+import { Form, GoBackButton } from '../components';
 import { useProductsContext } from '../context/products_context';
+import { useCartContext } from '../context/cart_context';
 
 export default function CheckOutPage() {
   const { single_product: product } = useProductsContext();
-
+  const { cart } = useCartContext();
+  /* to redirect when page reload use the last item from cart array */
   return (
     <main className="main checkout">
       <GoBackButton
@@ -12,7 +14,6 @@ export default function CheckOutPage() {
       />
       <section className="main__checkoutPageWrapper">
         <Form />
-        <Summary />
       </section>
     </main>
   );
