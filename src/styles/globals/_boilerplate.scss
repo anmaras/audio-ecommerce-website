@@ -33,13 +33,4 @@
     display: grid;
     gap: rem(100);
   }
-
-  &__checkoutPageWrapper {
-    display: grid;
-    gap: rem(32);
-
-    @include breakpoint(xlarge) {
-      grid-template-columns: 2fr 1fr;
-    }
-  }
 }
