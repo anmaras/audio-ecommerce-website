@@ -141,10 +141,13 @@
 
   &__cashNotification {
     display: grid;
-    grid-template-columns: auto 1fr;
     justify-items: center;
     gap: rem(32);
     padding-inline: rem(32);
+
+    @include breakpoint(medium) {
+      grid-template-columns: auto 1fr;
+    }
   }
 
   &__input--error {
