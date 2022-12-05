@@ -1,6 +1,5 @@
 import React from 'react';
 import style from '../styles/components/Summary.module.scss';
-import { Link } from 'react-router-dom';
 import { useCartContext } from '../context/cart_context';
 import { formatName, formatPrice } from '../utils/helpers';
 import uuid from 'react-uuid';
@@ -20,7 +19,7 @@ const Summary = () => {
         </section>
         <ul className={style['summary__list']}>
           {cart.map((item) => {
-            const { amount, image, name, vat, total_price, price } = item;
+            const { amount, image, name, price } = item;
             return (
               <li key={uuid()} className={style['summary__item']}>
                 <img
