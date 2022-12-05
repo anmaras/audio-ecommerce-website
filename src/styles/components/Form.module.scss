@@ -2,10 +2,6 @@
 @use '../globals/' as *;
 
 .checkout {
-  &__input--error {
-    background-color: red;
-  }
-
   &__title {
     margin-bottom: rem(48);
   }
@@ -35,10 +31,51 @@
     margin-bottom: rem(40);
   }
 
+  &__subtitle {
+    margin-bottom: rem(28);
+  }
+
+  &__fieldset--inputs &__formControlsWrapper:nth-child(3) {
+    @include breakpoint(medium) {
+      grid-template-columns: 1fr 1fr;
+      column-gap: rem(16);
+    }
+  }
+
+  &__fieldset--inputs &__formControlsWrapper:nth-child(5) {
+    @include breakpoint(medium) {
+      grid-template-columns: 1fr 1fr;
+      column-gap: rem(16);
+    }
+    div:nth-child(1) {
+      @include breakpoint(medium) {
+        grid-column: 1/-1;
+      }
+    }
+  }
+
+  &__fieldset--inputs > div:nth-child(7) {
+    @include breakpoint(medium) {
+      grid-template-columns: 1fr 1fr;
+      column-gap: rem(16);
+    }
+
+    div:nth-child(2),
+    div:nth-child(3) {
+      @include breakpoint(medium) {
+        grid-column: 2/-1;
+      }
+    }
+  }
+
+  &__payMethods {
+    font-size: rem(12);
+    font-weight: 700;
+  }
+
   &__formControls:not(&__formControls:has(input[type='radio'])) {
     display: grid;
     grid-template-columns: auto 1fr;
-    // grid-template-rows: repeat(2, auto);
     align-items: center;
 
     label {
@@ -64,13 +101,6 @@
       &:focus {
         outline-color: var(--raw-sienna);
       }
-
-      // &:invalid[focused='true'] {
-      //   border-color: red;
-      // }
-      // &:invalid[focused='true'] ~ p {
-      //   display: block;
-      // }
     }
   }
 
@@ -79,15 +109,9 @@
     display: inline;
     border-radius: var(--border-radius);
     border: thin solid var(--normal-grey);
-    cursor: pointer;
     display: flex;
     align-items: center;
     gap: rem(16);
-
-    /* need fixing on focus within */
-    &:focus-within {
-      outline: 2px solid var(--raw-sienna);
-    }
 
     label {
       cursor: pointer;
@@ -98,7 +122,7 @@
       margin: 0;
       padding: 0;
       width: rem(20);
-      border: 1px solid var(--normal-grey);
+      border: 2px solid var(--normal-grey);
       border-radius: 50%;
       border-style: solid;
       aspect-ratio: 1;
@@ -111,17 +135,22 @@
     }
   }
 
-  &__subtitle {
-    margin-bottom: rem(28);
+  &__formControls:has(input[type='radio']:checked) {
+    outline: 2px solid var(--raw-sienna);
   }
 
   &__cashNotification {
     display: grid;
+    grid-template-columns: auto 1fr;
     justify-items: center;
     gap: rem(32);
+    padding-inline: rem(32);
+  }
 
-    @include breakpoint(xlarge) {
-      grid-template-columns: auto 1fr;
-    }
+  &__input--error {
+    border-color: red !important;
+  }
+  &__label--error {
+    color: red;
   }
 }

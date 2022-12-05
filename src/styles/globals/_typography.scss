@@ -90,7 +90,8 @@ body {
 }
 
 .form {
-  &__label {
+  &__label,
+  &__payMethods {
     font-size: rem(12);
     font-weight: 700;
   }
