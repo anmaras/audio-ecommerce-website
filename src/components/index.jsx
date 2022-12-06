@@ -18,8 +18,10 @@ import FormInputs from './FormInputs';
 import Summary from './Summary';
 import GoBackButton from './GoBackButton';
 import ProductsPreviews from './ProductsPreviews';
+import CheckoutModal from './CheckoutModal';
 
 export {
+  CheckoutModal,
   ProductsPreviews,
   GoBackButton,
   Summary,
