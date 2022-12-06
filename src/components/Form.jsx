@@ -1,10 +1,8 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { inputs } from '../utils/constants';
-import { FormInputs, Summary } from './index';
+import React, { useState, useEffect } from 'react';
+import { Summary, CheckoutModal } from './index';
 import logoUrl from '../assets/checkout/icon-cash-on-delivery.svg';
 import style from '../styles/components/Form.module.scss';
-import useValidator from '../hooks/useValidator';
-import CheckoutModal from './CheckoutModal';
+import { validator } from '../utils/helpers';
 
 const initialState = {
   username: '',
@@ -23,7 +21,6 @@ const Form = () => {
   const [values, setValues] = useState(initialState);
   const [isSubmit, setIsSubmit] = useState(false);
   const [formErrors, setFormErrors] = useState({});
-  const [error] = useValidator(values);
   const [payment, setPayment] = useState('emoney');
 
   const onChange = (e) => {
@@ -38,12 +35,12 @@ const Form = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setFormErrors(error);
+    setFormErrors(validator(values));
     setIsSubmit(true);
   };
 
   useEffect(() => {
-    setValues({ ...values, payment: payment });
+    setValues({ ...values, payment });
   }, [payment]);
 
   return (
@@ -391,7 +388,7 @@ const Form = () => {
                       onChange={onChange}
                     />
                     <p className="form__warning">{formErrors.e_pin}</p>
-                  </div>{' '}
+                  </div>
                 </>
               ) : null}
             </div>

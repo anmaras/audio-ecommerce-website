@@ -1,22 +1,15 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import style from '../styles/components/CheckoutModal.module.scss';
 import imgUrl from '../assets/checkout/icon-order-confirmation.svg';
 import uuid from 'react-uuid';
 import { Link } from 'react-router-dom';
-
 import { formatName, formatPrice } from '../utils/helpers';
-
 import { useCartContext } from '../context/cart_context';
-
-import Summary from './Summary';
-import { useState } from 'react';
-import { useEffect } from 'react';
 
 const CheckoutModal = () => {
   const {
     cart,
     shipping_fee: shipping,
-    total_vat: vat,
     total_amount: total,
   } = useCartContext();
   const [state, setState] = useState(false);
@@ -42,7 +35,9 @@ const CheckoutModal = () => {
           <h3>thank you</h3>
           <h3>for your order</h3>
         </div>
-        <p>You will receive an email confirmation shortly.</p>
+        <p className={style['modal__subtitle']}>
+          You will receive an email confirmation shortly.
+        </p>
         <div className={style['modal__wrapper']}>
           <div className={style['modal__listWrapper']}>
             <ul className={style['modal__list']}>
