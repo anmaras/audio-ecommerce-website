@@ -62,6 +62,14 @@ const useValidator = (value) => {
       error.e_pin = 'Must be a number';
     }
 
+    if (value.payment === 'cash') {
+      delete error.e_number;
+    }
+
+    if (value.payment === 'cash') {
+      delete error.e_pin;
+    }
+
     setError(error);
   }, [value]);
 
