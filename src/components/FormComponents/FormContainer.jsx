@@ -3,12 +3,9 @@ import Summary from '../Summary';
 import logoUrl from '../../assets/checkout/icon-cash-on-delivery.svg';
 import style from '../../styles/components/Form.module.scss';
 import { Formik, Form } from 'formik';
-import * as yup from 'yup';
 import FormControl from './FormControl';
 import CheckoutModal from '../CheckoutModal';
-
-const phoneReg = /^(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}$/;
-const numberOnly = /^[0-9]*$/;
+import { validationSchema } from '../../utils/validationSchema';
 
 const FormContainer = () => {
   const [radioValue, setRadioValue] = useState('emoney');
@@ -37,49 +34,6 @@ const FormContainer = () => {
     { key: 'Cash on Delivery', value: 'cash' },
   ];
 
-  const validationSchema = yup.object({
-    username: yup
-      .string()
-      .trim()
-      .min(3, 'Must be more than 3 letters')
-      .max(50, 'Must be less than 50 letters')
-      .required('Required'),
-    email: yup.string().email('Not a valid email format').required('Required'),
-
-    phone: yup
-      .string()
-      .matches(phoneReg, 'Wrong phone format')
-      .min(10, 'Too sort')
-      .required('Required'),
-    address: yup.string().trim().required('Required'),
-    zip: yup
-      .string()
-      .matches(numberOnly, 'Must be numbers only')
-      .min(5, 'Must be 5 digits')
-      .max(5, 'Must be 5 digits')
-      .required('Required'),
-    city: yup.string().trim().required('Required'),
-    country: yup.string().trim().required('Required'),
-    e_number: yup.string().when('radioOption', {
-      is: 'emoney',
-      then: yup
-        .string()
-        .matches(numberOnly, 'Must be numbers only')
-        .min(9, 'Must be 9 digits')
-        .max(9, 'Must be 9 digits')
-        .required('Required'),
-    }),
-    e_pin: yup.string().when('radioOption', {
-      is: 'emoney',
-      then: yup
-        .string()
-        .matches(numberOnly, 'Must be numbers only')
-        .min(4, 'Must be 4 digits')
-        .max(4, 'Must be 4 digits')
-        .required('Required'),
-    }),
-  });
-
   const onSubmit = () => setIsValid(true);
 
   return (
@@ -106,21 +60,21 @@ const FormContainer = () => {
                   <FormControl
                     control="input"
                     type="text"
-                    label="name"
+                    label="Name"
                     name="username"
                     placeholder="Alexei Ward"
                   />
                   <FormControl
                     control="input"
                     type="email"
-                    label="email address"
+                    label="Email Address"
                     name="email"
                     placeholder="alexei@mail.com"
                   />
                   <FormControl
                     control="input"
                     type="text"
-                    label="phone number"
+                    label="Phone Number"
                     name="phone"
                     placeholder="+1 202-555-0136"
                   />
@@ -136,7 +90,7 @@ const FormContainer = () => {
                   <FormControl
                     control="input"
                     type="text"
-                    label="address"
+                    label="Address"
                     name="address"
                     placeholder="1137 Williams Avenue"
                   />
@@ -150,14 +104,14 @@ const FormContainer = () => {
                   <FormControl
                     control="input"
                     type="text"
-                    label="city"
+                    label="City"
                     name="city"
                     placeholder="New York"
                   />
                   <FormControl
                     control="input"
                     type="text"
-                    label="country"
+                    label="Country"
                     name="country"
                     placeholder="United States"
                   />
