@@ -156,4 +156,9 @@
   &__label--error {
     color: red;
   }
+
+  /* select the label if there is error p element inside parent */
+  &__formControls:has(p) > label {
+    color: red;
+  }
 }
