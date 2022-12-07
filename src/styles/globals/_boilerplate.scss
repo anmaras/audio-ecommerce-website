@@ -3,28 +3,22 @@
 
 #root {
   min-height: 100vh;
-  position: relative;
-  display: grid;
-}
-
-.main.categories,
-.main.singleProduct,
-.main.checkout {
-  /* calculate top from header height */
-  /* class at pages jsx */
-  position: relative;
-  // top: rem(90);
+  background-color: var(--light-grey);
 }
 
 .main {
-  background-color: var(--light-grey);
   &__homePageWrapper,
-  &__productsPageWrapper,
+  &__productsPageWrapper {
+    @include width-center(rem(1220), rem(45));
+    padding-top: rem(65);
+    padding-bottom: rem(130);
+  }
+
   &__productPageWrapper,
   &__checkoutPageWrapper {
     @include width-center(rem(1220), rem(45));
-    margin-top: rem(65);
-    margin-bottom: rem(130);
+    padding-top: rem(32.5);
+    padding-bottom: rem(130);
   }
 
   &__productPageWrapper,
