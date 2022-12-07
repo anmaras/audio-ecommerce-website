@@ -56,7 +56,11 @@ const Summary = ({ onSubmit }) => {
             <p>{formatPrice(total + shipping)}</p>
           </div>
         </div>
-        <button type="submit" className="button-1">
+        <button
+          type="submit"
+          className="button-1"
+          disabled={cart.length ? false : true}
+        >
           continue & pay
         </button>
       </article>
