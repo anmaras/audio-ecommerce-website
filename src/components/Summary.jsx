@@ -4,7 +4,7 @@ import { useCartContext } from '../context/cart_context';
 import { formatName, formatPrice } from '../utils/helpers';
 import uuid from 'react-uuid';
 
-const Summary = () => {
+const Summary = ({ onSubmit }) => {
   const {
     cart,
     shipping_fee: shipping,
@@ -56,7 +56,9 @@ const Summary = () => {
             <p>{formatPrice(total + shipping)}</p>
           </div>
         </div>
-        <button className="button-1">continue & pay</button>
+        <button type="submit" className="button-1">
+          continue & pay
+        </button>
       </article>
     </section>
   );
