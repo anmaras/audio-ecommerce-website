@@ -8,6 +8,7 @@ import {
 const cart_reducer = (state, action) => {
   if (action.type === ADD_TO_CART) {
     const { amount, product, id } = action.payload;
+    const { price, id: productId, name, slug, category } = product;
     /* find the item  */
     const tempItem = state.cart.find((item) => item.id === id);
     /* if item exist in cart */
@@ -28,10 +29,12 @@ const cart_reducer = (state, action) => {
       specific properties and added to the cart */
       const newItem = {
         amount,
-        price: product.price,
-        id: id,
-        name: product.name,
-        image: `/src/assets/cart/image-${product.slug}.jpg`,
+        price,
+        productId,
+        name,
+        image: `/src/assets/cart/image-${slug}.jpg`,
+        slug,
+        category,
       };
       return { ...state, cart: [...state.cart, newItem] };
     }
