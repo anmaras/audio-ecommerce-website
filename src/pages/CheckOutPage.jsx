@@ -1,5 +1,5 @@
 import React from 'react';
-import { Form, GoBackButton } from '../components';
+import { GoBackButton, FormContainer } from '../components';
 import { useProductsContext } from '../context/products_context';
 import { useCartContext } from '../context/cart_context';
 
@@ -13,7 +13,7 @@ export default function CheckOutPage() {
         category={`/products/${product?.category}/${product?.slug}`}
       />
       <section className="main__checkoutPageWrapper">
-        <Form />
+        <FormContainer />
       </section>
     </main>
   );
