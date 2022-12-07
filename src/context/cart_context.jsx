@@ -5,7 +5,6 @@ import {
   ADD_TO_CART,
   CLEAR_CART,
   TOGGLE_CART_ITEM_AMOUNT,
-  REMOVE_CART_ITEM,
   COUNT_CART_TOTALS,
 } from '../actions/actions';
 
@@ -47,7 +46,6 @@ export const CartProvider = ({ children }) => {
     localStorage.setItem('cart', JSON.stringify(state.cart));
   }, [state.cart]);
 
-  console.log(state);
   return (
     <CartContext.Provider
       value={{
