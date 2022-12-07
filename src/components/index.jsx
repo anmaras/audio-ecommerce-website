@@ -18,8 +18,10 @@ import GoBackButton from './GoBackButton';
 import ProductsPreviews from './ProductsPreviews';
 import CheckoutModal from './CheckoutModal';
 import FormContainer from './FormComponents/FormContainer';
+import Spinner from './Spinner';
 
 export {
+  Spinner,
   FormContainer,
   CheckoutModal,
   ProductsPreviews,
