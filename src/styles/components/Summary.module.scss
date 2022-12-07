@@ -22,17 +22,18 @@
 
   &__item {
     display: grid;
-    grid-template-columns: 25% 1fr 1fr;
+    grid-template-columns: auto 1fr 1fr;
     grid-template-rows: 1fr;
-    align-items: center;
     gap: rem(16);
   }
 
   &__image {
     border-radius: var(--border-radius);
+    max-width: 64px;
   }
 
   &__product {
+    align-self: center;
     p:nth-child(1) {
       text-transform: uppercase;
       font-size: rem(15);
