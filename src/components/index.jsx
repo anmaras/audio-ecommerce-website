@@ -13,20 +13,18 @@ import Product from './Product';
 import Pictures from './Pictures';
 import Amount from './Amount';
 import Cart from './Cart';
-import Form from './Form';
-import FormInputs from './FormInputs';
 import Summary from './Summary';
 import GoBackButton from './GoBackButton';
 import ProductsPreviews from './ProductsPreviews';
 import CheckoutModal from './CheckoutModal';
+import FormContainer from './FormComponents/FormContainer';
 
 export {
+  FormContainer,
   CheckoutModal,
   ProductsPreviews,
   GoBackButton,
   Summary,
-  FormInputs,
-  Form,
   Cart,
   Amount,
   Pictures,
