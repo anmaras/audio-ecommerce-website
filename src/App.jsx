@@ -1,34 +1,25 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import {
-  HomePage,
-  CheckOutPage,
-  ErrorPage,
-  ProductsPage,
-  SingleProductPage,
-} from './pages';
-
+import { BrowserRouter as Router } from 'react-router-dom';
 import { NavbarDropMenu, Footer, Header, Cart } from './components';
-import FadeLoader from 'react-spinners/FadeLoader';
 import { useProductsContext } from './context/products_context';
+import AnimateRoutes from './AnimateRoutes';
+import Spinner from './components/Spinner';
+import ScrollToTop from './utils/ScrollToTop';
 
 function App() {
   const { products_loading: loading } = useProductsContext();
 
   if (loading) {
-    return <FadeLoader />;
+    return <Spinner />;
   }
+
   return (
     <Router>
+      <ScrollToTop />
       <NavbarDropMenu />
       <Header />
       <Cart />
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/products/:category" element={<ProductsPage />} />
-        <Route path="/products/:category/:id" element={<SingleProductPage />} />
-        <Route path="/checkout" element={<CheckOutPage />} />
-        <Route path="*" element={<ErrorPage />} />
-      </Routes>
+      {/* {loading ? <Spinner /> : <AnimateRoutes />} */}
+      <AnimateRoutes />
       <Footer />
     </Router>
   );
