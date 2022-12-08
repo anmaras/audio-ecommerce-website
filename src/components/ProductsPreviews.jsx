@@ -3,6 +3,8 @@ import { Pictures } from '../components';
 import { previewProducts } from '../utils/constants';
 import { Link } from 'react-router-dom';
 import style from '../styles/components/ProductsPreviews.module.scss';
+import { motion } from 'framer-motion';
+import { productPreviewsVariant } from '../AnimationVariants/variants';
 
 const ProductsPreviews = () => {
   return (
@@ -22,7 +24,13 @@ const ProductsPreviews = () => {
           } = preview;
 
           return (
-            <li key={id} className={style['homepage__item']}>
+            <motion.li
+              key={id}
+              className={style['homepage__item']}
+              variants={productPreviewsVariant}
+              initial="initial"
+              whileInView="whileInView"
+            >
               {decoration ? (
                 <img
                   className={style['homepage__decoration']}
@@ -69,7 +77,7 @@ const ProductsPreviews = () => {
                   </Link>
                 </div>
               )}
-            </li>
+            </motion.li>
           );
         })}
       </ul>

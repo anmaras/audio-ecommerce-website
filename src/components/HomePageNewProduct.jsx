@@ -4,21 +4,23 @@ import tabletUrl from '../assets/home/tablet/image-header.jpg';
 import desktopUrl from '../assets/home/desktop/image-hero.jpg';
 import { Link } from 'react-router-dom';
 import style from '../styles/components/HomePageNewProduct.module.scss';
+import { motion } from 'framer-motion';
+import { newProductVariant } from '../AnimationVariants/variants';
 
 const NewProduct = () => {
   return (
     <section className={style.newProduct}>
       <div className={style['newProduct__wrapper']}>
-        <picture>
+        <motion.picture
+          variants={newProductVariant}
+          initial="initial"
+          animate="animate"
+        >
           <source media="(min-width:1220px)" srcSet={desktopUrl} />
           <source media="(min-width:600px)" srcSet={tabletUrl} />
           <source media="(min-width:375px)" srcSet={mobileUrl} />
-          <img
-            src={mobileUrl}
-            alt="xx99 mark 2 headphones image"
-            loading="lazy"
-          />
-        </picture>
+          <img src={mobileUrl} alt="xx99 mark 2 headphones image" />
+        </motion.picture>
         <div className={style['newProduct__textWrapper']}>
           <p className={[style['newProduct__overline '], 'overline'].join(' ')}>
             new product
