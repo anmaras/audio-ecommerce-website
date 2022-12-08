@@ -50,3 +50,12 @@
     vertical-align: middle;
   }
 }
+
+.button-inactive {
+  @extend .button;
+  background-color: var(--light-salmon);
+  color: var(--white);
+  &:active {
+    scale: unset;
+  }
+}
