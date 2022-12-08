@@ -3,9 +3,9 @@
 
 .newProduct {
   background-color: var(--smoky-black);
+  overflow: hidden;
 
   &__wrapper {
-    position: relative;
     display: grid;
     place-items: center;
     @include width-center(rem(1220), $margin: false);

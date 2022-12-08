@@ -2,6 +2,7 @@
 @use '../globals/' as g;
 
 .homepage {
+  overflow: hidden;
   &__list {
     display: grid;
     gap: u.rem(24);
