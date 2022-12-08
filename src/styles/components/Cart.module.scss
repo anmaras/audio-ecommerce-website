@@ -56,6 +56,23 @@
     }
   }
 
+  &__message {
+    color: var(--white);
+    text-align: center;
+    display: grid;
+    gap: rem(24);
+  }
+
+  &__messageTitle {
+    border-radius: var(--border-radius);
+    padding: rem(16);
+    background-color: var(--smoky-black);
+  }
+
+  &__messageSub {
+    color: var(--footer-text);
+  }
+
   &__list {
     display: grid;
     gap: rem(24);
