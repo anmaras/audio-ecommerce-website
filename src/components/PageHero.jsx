@@ -1,19 +1,21 @@
 import React from 'react';
-import { useProductsContext } from '../context/products_context';
 import style from '../styles/components/PageHero.module.scss';
+import { motion } from 'framer-motion';
+import { pageHeroTitleVariant } from '../AnimationVariants/variants';
 
 const PageHero = ({ category }) => {
-  const { category_products } = useProductsContext();
-
-  if (category_products.length) {
-    return (
-      <div className={style.pageHero}>
-        <h2 className="pageHero__title">{category}</h2>
-      </div>
-    );
-  } else {
-    null;
-  }
+  return (
+    <div className={style.pageHero}>
+      <motion.h2
+        className="pageHero__title"
+        variants={pageHeroTitleVariant}
+        initial="initial"
+        animate="animate"
+      >
+        {category}
+      </motion.h2>
+    </div>
+  );
 };
 
 export default PageHero;
