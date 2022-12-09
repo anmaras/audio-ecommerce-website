@@ -21,7 +21,7 @@
       margin-left: 0;
     }
 
-    picture {
+    div:has(picture) {
       @include u.breakpoint(xlarge) {
         grid-column: 2/-1;
       }

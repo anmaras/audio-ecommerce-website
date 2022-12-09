@@ -43,6 +43,7 @@
 /* features */
 
 .features {
+  overflow: hidden;
   @include grid(rem(100));
 
   @include breakpoint(xlarge) {
@@ -101,7 +102,7 @@
     grid-template-columns: 40% 1fr;
   }
 
-  picture:nth-child(3) {
+  div:nth-child(3) {
     @include breakpoint(medium) {
       grid-column: 2/-1;
       grid-row: 1/3;

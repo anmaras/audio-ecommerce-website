@@ -3,12 +3,7 @@
 
 .spinner {
   background-color: var(--light-grey);
-  height: 100vh;
-  width: 100vw;
-  position: fixed;
   z-index: 100;
   display: grid;
   place-content: center;
-  top: 0;
-  bottom: 0;
 }

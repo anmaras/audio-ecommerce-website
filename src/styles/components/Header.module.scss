@@ -24,6 +24,7 @@ $cartAmountWidth: 20px;
 
     border-bottom: 1px solid var(--border-grey);
   }
+
   &__hamburger,
   &__cart {
     cursor: pointer;
@@ -79,4 +80,9 @@ $cartAmountWidth: 20px;
       font-weight: 500;
     }
   }
+}
+
+.nav {
+  background-color: red;
+  padding-block: rem(24);
 }
