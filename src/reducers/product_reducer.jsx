@@ -43,7 +43,6 @@ const product_reducer = (state, action) => {
   }
 
   /* category */
-
   if (action.type === GET_PRODUCTS_CATEGORY) {
     /* make a copy from the main array of products */
     const products = [...state.products];
@@ -54,7 +53,6 @@ const product_reducer = (state, action) => {
     return {
       ...state,
       category_products: categoryProducts,
-      category_loading: false,
     };
   }
 
@@ -67,7 +65,7 @@ const product_reducer = (state, action) => {
       return product.slug === action.payload;
     });
 
-    return { ...state, single_product: singleProduct, product_loading: false };
+    return { ...state, single_product: singleProduct };
   }
 
   throw new Error(`No Matching "${action.type}" - action type`);

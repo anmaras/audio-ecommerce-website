@@ -10,11 +10,7 @@ import {
   GET_PRODUCTS_SUCCESS,
   GET_PRODUCTS_ERROR,
   GET_PRODUCTS_CATEGORY,
-  GET_PRODUCTS_CATEGORY_BEGIN,
-  GET_PRODUCTS_CATEGORY_ERROR,
   GET_SINGLE_PRODUCT_SUCCESS,
-  GET_SINGLE_PRODUCT_BEGIN,
-  GET_SINGLE_PRODUCT_ERROR,
   TOGGLE_CART,
   CLOSE_CART,
 } from '../actions/actions';
@@ -28,10 +24,6 @@ const initialState = {
   cart: [],
   products_loading: false,
   products_error: false,
-  product_loading: false,
-  product_error: false,
-  category_loading: false,
-  category_error: false,
 };
 
 const ProductsContext = React.createContext();
@@ -73,7 +65,7 @@ export const ProductsProvider = ({ children }) => {
     });
   };
 
-  const fetchSingleProduct = (slug) => {
+  const fetchSingleProduct = async (slug) => {
     dispatch({
       type: GET_SINGLE_PRODUCT_SUCCESS,
       payload: slug,
