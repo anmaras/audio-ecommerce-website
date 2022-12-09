@@ -1,5 +1,3 @@
-import { animate } from 'framer-motion';
-
 const opacityOff = 0;
 const opacityOn = 1;
 
@@ -11,6 +9,8 @@ export const navbarDropMenuVariant = {
   animate: {
     y: 0,
     transition: {
+      type: 'tween',
+      ease: 'anticipate',
       duration: 0.5,
     },
   },
@@ -73,12 +73,11 @@ export const newProductVariant = {
 export const menuListVariant = {
   initial: {
     opacity: opacityOff,
+    scaleX: 0,
   },
   whileInView: {
     opacity: opacityOn,
-    transition: {
-      duration: 1,
-    },
+    scaleX: 1,
   },
 };
 
@@ -140,5 +139,153 @@ export const aboutTextVariant = {
       type: 'spring',
       mass: 0.1,
     },
+  },
+};
+
+/* Page hero variants */
+
+export const pageHeroVariant = {
+  initial: {
+    opacity: opacityOff,
+    y: '-100%',
+  },
+
+  animate: {
+    opacity: opacityOn,
+    y: 0,
+    transition: {
+      duration: 0.25,
+      when: 'beforeChildren',
+    },
+  },
+};
+
+export const pageHeroTitleVariant = {
+  initial: {
+    opacity: opacityOff,
+    scaleX: 0,
+  },
+
+  animate: {
+    opacity: opacityOn,
+    scaleX: 1,
+    transition: {},
+  },
+};
+
+/* Page categories variants */
+
+export const productCategoryVariant = {};
+
+export const categoryImgVariant = {
+  initial: {
+    opacity: opacityOff,
+    scaleX: 0,
+  },
+
+  whileInView: {
+    opacity: opacityOn,
+    scaleX: 1,
+  },
+};
+export const categoryListMenu = {
+  initial: {
+    opacity: opacityOff,
+    scaleX: 0,
+  },
+  whileInView: {
+    opacity: opacityOn,
+    scaleX: 1,
+  },
+};
+
+export const categoryText = {
+  initial: {
+    opacity: opacityOff,
+  },
+  animate: {
+    opacity: opacityOn,
+    transition: {
+      duration: 1,
+    },
+  },
+};
+
+/*Product variants  */
+
+export const featuresVariant = {
+  initial: {
+    opacity: opacityOff,
+  },
+  animate: {
+    opacity: opacityOn,
+    transition: {
+      duration: 1,
+      // when: 'afterChildren',
+    },
+  },
+};
+
+export const featuresTextVariant = {
+  initial: {
+    x: '-100%',
+  },
+  animate: {
+    x: 0,
+  },
+};
+export const inTheBoxVariant = {
+  initial: {
+    x: '100%',
+  },
+  animate: {
+    x: 0,
+  },
+};
+
+export const imgGalleryVariant = {
+  initial: {
+    opacity: opacityOff,
+    scale: 0,
+  },
+  whileInView: {
+    opacity: opacityOn,
+    scale: 1,
+    transition: {
+      type: 'tween',
+      ease: 'anticipate',
+      duration: 0.5,
+      delay: 0.3,
+    },
+  },
+  whileInView2: {
+    opacity: opacityOn,
+    scale: 1,
+    transition: {
+      type: 'tween',
+      ease: 'anticipate',
+      duration: 0.5,
+      delay: 0.05,
+    },
+  },
+  whileInView3: {
+    opacity: opacityOn,
+    scale: 1,
+    transition: {
+      type: 'tween',
+      ease: 'anticipate',
+      duration: 0.5,
+    },
+  },
+};
+
+export const altVariant = {
+  initial: {
+    opacity: opacityOff,
+    x: '-100%',
+  },
+  whileInView: {
+    opacity: opacityOn,
+    x: 1,
   },
 };
