@@ -15,6 +15,7 @@ const Logo = ({ className }) => {
         onClick={() => {
           closeMenu();
           closeCart();
+          window.scrollTo({ top: 0, behavior: 'smooth' });
         }}
         loading="lazy"
       />
