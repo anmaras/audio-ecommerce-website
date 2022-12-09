@@ -1,3 +1,5 @@
+import { animate } from 'framer-motion';
+
 const opacityOff = 0;
 const opacityOn = 1;
 
@@ -287,5 +289,34 @@ export const altVariant = {
   whileInView: {
     opacity: opacityOn,
     x: 1,
+  },
+};
+
+/* checkoutModal variants */
+
+export const checkOutSectionVariant = {
+  initial: {
+    opacity: opacityOff,
+  },
+  animate: {
+    opacity: opacityOn,
+    transition: {
+      when: 'beforeChildren',
+    },
+  },
+};
+export const checkOutModalVariant = {
+  initial: {
+    opacity: opacityOff,
+    scale: 0,
+  },
+  animate: {
+    opacity: opacityOn,
+    scale: 1,
+    transition: {
+      type: 'tween',
+      ease: 'anticipate',
+      duration: 0.5,
+    },
   },
 };
