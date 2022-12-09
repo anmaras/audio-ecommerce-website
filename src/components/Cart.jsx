@@ -6,6 +6,7 @@ import { useProductsContext } from '../context/products_context';
 import { useCartContext } from '../context/cart_context';
 import { formatPrice, formatName } from '../utils/helpers';
 import { motion, AnimatePresence } from 'framer-motion';
+import uuid from 'react-uuid';
 import {
   navBarMenuBackDrop,
   navbarDropMenuVariant,
