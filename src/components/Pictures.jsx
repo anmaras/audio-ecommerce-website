@@ -3,6 +3,7 @@ import { imageUrls } from '../utils/helpers';
 import style from '../styles/components/Pictures.module.scss';
 
 const Pictures = ({ desktop, tablet, mobile, alt }) => {
+  console.log(desktop);
   return (
     <picture className={style.picture}>
       <source media="(min-width:1440px)" srcSet={imageUrls(desktop)} />

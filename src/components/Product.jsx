@@ -29,8 +29,6 @@ const Product = ({ productId }) => {
     fetchSingleProduct(productId);
   }, [products]);
 
-  console.log(products);
-
   const increase = () => {
     setAmount((prev) => (prev === amount ? prev + 1 : amount));
   };
