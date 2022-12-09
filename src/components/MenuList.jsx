@@ -21,6 +21,7 @@ const MenuList = () => {
                 onClick={() => {
                   getProductsByCategory(category);
                   closeMenu();
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
                 }}
               >
                 <img
