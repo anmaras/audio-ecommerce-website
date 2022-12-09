@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import { links } from '../utils/constants';
 import { useProductsContext } from '../context/products_context';
 
+/* if user click the link after page load the behavior will be smooth 
+for scrolling back to top */
 const CategoriesList = ({ className }) => {
   const { getProductsByCategory } = useProductsContext();
   return (
@@ -15,6 +17,7 @@ const CategoriesList = ({ className }) => {
               to={url}
               onClick={() => {
                 getProductsByCategory(text);
+
                 window.scrollTo({ top: 0, behavior: 'smooth' });
               }}
             >
