@@ -4,26 +4,37 @@ import {
   HomePageNewProduct,
   ProductsPreviews,
   About,
+  Spinner,
 } from '../components';
 
-import { motion } from 'framer-motion';
+import { LazyMotion, domAnimation, m } from 'framer-motion';
 import { menuListVariant } from '../AnimationVariants/variants';
+import { useProductsContext } from '../context/products_context';
 
 export default function HomePage() {
+  const { products_loading: loading } = useProductsContext();
+
+  if (loading) {
+    return <Spinner />;
+  }
+
   return (
-    <main className="main homepage">
-      <HomePageNewProduct />
-      <section className="main__homePageWrapper">
-        <motion.div
-          variants={menuListVariant}
-          initial="initial"
-          whileInView="whileInView"
-        >
-          <MenuList />
-        </motion.div>
-        <ProductsPreviews />
-        <About />
-      </section>
-    </main>
+    <LazyMotion features={domAnimation}>
+      <main className="main homepage">
+        <HomePageNewProduct />
+        <section className="main__homePageWrapper">
+          <m.div
+            variants={menuListVariant}
+            initial="initial"
+            whileInView="whileInView"
+            viewport={{ once: true }}
+          >
+            <MenuList />
+          </m.div>
+          <ProductsPreviews />
+          <About />
+        </section>
+      </main>
+    </LazyMotion>
   );
 }
