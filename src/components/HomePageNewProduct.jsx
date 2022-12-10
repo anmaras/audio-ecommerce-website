@@ -1,7 +1,7 @@
 import React from 'react';
-import mobileUrl from '../assets/home/mobile/image-header.jpg';
-import tabletUrl from '../assets/home/tablet/image-header.jpg';
-import desktopUrl from '../assets/home/desktop/image-hero.jpg';
+import mobileUrl from '/assets/home/mobile/image-header.jpg';
+import tabletUrl from '/assets/home/tablet/image-header.jpg';
+import desktopUrl from '/assets/home/desktop/image-hero.jpg';
 import { Link } from 'react-router-dom';
 import style from '../styles/components/HomePageNewProduct.module.scss';
 import { LazyMotion, domAnimation, m } from 'framer-motion';

@@ -1,7 +1,7 @@
 import React from 'react';
-import mobile from '../assets/shared/mobile/image-best-gear.jpg';
-import tablet from '../assets/shared/tablet/image-best-gear.jpg';
-import desktop from '../assets/shared/desktop/image-best-gear.jpg';
+import mobile from '/assets/shared/mobile/image-best-gear.jpg';
+import tablet from '/assets/shared/tablet/image-best-gear.jpg';
+import desktop from '/assets/shared/desktop/image-best-gear.jpg';
 import { Pictures } from '../components/index';
 import style from '../styles/components/About.module.scss';
 import { LazyMotion, m, domAnimation } from 'framer-motion';

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import style from '../styles/components/CheckoutModal.module.scss';
-import imgUrl from '../assets/checkout/icon-order-confirmation.svg';
+import imgUrl from '/assets/checkout/icon-order-confirmation.svg';
 import uuid from 'react-uuid';
 import { Link } from 'react-router-dom';
 import { formatName, formatPrice } from '../utils/helpers';

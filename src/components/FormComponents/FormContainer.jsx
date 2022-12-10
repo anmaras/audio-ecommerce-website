@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Summary from '../Summary';
-import logoUrl from '../../assets/checkout/icon-cash-on-delivery.svg';
+import logoUrl from '/assets/checkout/icon-cash-on-delivery.svg';
 import style from '../../styles/components/Form.module.scss';
 import { Formik, Form } from 'formik';
 import FormControl from './FormControl';
