@@ -1,6 +1,6 @@
 import React from 'react';
-import hamburgerUrl from '../assets/shared/tablet/icon-hamburger.svg';
-import cartUrl from '../assets/shared/desktop/icon-cart.svg';
+import hamburgerUrl from '/assets/shared/tablet/icon-hamburger.svg';
+import cartUrl from '/assets/shared/desktop/icon-cart.svg';
 import { useProductsContext } from '../context/products_context';
 import { useCartContext } from '../context/cart_context';
 import { NavbarLinks, Logo } from './index';
@@ -18,7 +18,8 @@ const Header = () => {
           alt="hamburger menu icon"
           className={style['header__hamburger']}
           onClick={toggleMenu}
-          loading="lazy"
+          width="16"
+          height="15"
         />
         <Logo className={style['header__log']} />
         <NavbarLinks className={style['header__linksList']} />
@@ -27,8 +28,9 @@ const Header = () => {
             src={cartUrl}
             alt="cart icon"
             className={style['header__cart']}
-            loading="lazy"
             onClick={toggleCart}
+            width="23"
+            height="20"
           />
           <div className={style['header__amount']}>
             <p>{total}</p>
