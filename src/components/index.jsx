@@ -19,8 +19,10 @@ import ProductsPreviews from './ProductsPreviews';
 import CheckoutModal from './CheckoutModal';
 import FormContainer from './FormComponents/FormContainer';
 import Spinner from './Spinner';
+import Error404 from './Error404';
 
 export {
+  Error404,
   Spinner,
   FormContainer,
   CheckoutModal,
