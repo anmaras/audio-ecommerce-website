@@ -8,7 +8,7 @@
   &__wrapper {
     display: grid;
     place-items: center;
-    @include width-center(rem(1220), $margin: false);
+    @include width-center(rem(1220), rem(45));
     @include breakpoint(large) {
       justify-items: flex-start;
     }

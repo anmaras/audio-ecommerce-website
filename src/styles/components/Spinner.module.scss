@@ -2,8 +2,9 @@
 @use '../globals/' as *;
 
 .spinner {
-  background-color: var(--light-grey);
+  background-color: var(--smoky-black);
   z-index: 100;
+  min-height: 100vh;
   display: grid;
   place-content: center;
 }
