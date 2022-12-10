@@ -17,8 +17,6 @@ const CategoriesList = ({ className }) => {
               to={url}
               onClick={() => {
                 getProductsByCategory(text);
-
-                window.scrollTo({ top: 0, behavior: 'smooth' });
               }}
             >
               {text}

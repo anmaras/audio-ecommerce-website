@@ -20,6 +20,7 @@ const Summary = ({ onSubmit }) => {
         <ul className={style['summary__list']}>
           {cart.map((item) => {
             const { amount, image, name, price } = item;
+            console.log(image);
             return (
               <li key={uuid()} className={style['summary__item']}>
                 <img

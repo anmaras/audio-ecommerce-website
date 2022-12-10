@@ -38,7 +38,6 @@ const ProductsPreviews = () => {
                     className={style['homepage__decoration']}
                     src={decoration}
                     alt=""
-                    loading="lazy"
                   />
                 ) : null}
                 <Pictures

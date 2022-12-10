@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useProductsContext } from '../context/products_context';
-import { Pictures, Amount, Spinner } from '../components/index';
+import { Pictures, Amount } from '../components/index';
 import style from '../styles/components/Product.module.scss';
 import { formatPrice, splitText } from '../utils/helpers';
 import { useCartContext } from '../context/cart_context';
@@ -182,7 +182,13 @@ const Product = ({ productId }) => {
               >
                 <Pictures desktop={desktop} tablet={tablet} mobile={mobile} />
                 <h5>{name}</h5>
-                <Link to={`/products/${category}/${slug}`} className="button-1">
+                <Link
+                  to={`/products/${category}/${slug}`}
+                  className="button-1"
+                  onClick={() => {
+                    window.scrollTo({ top: 0 });
+                  }}
+                >
                   see product
                 </Link>
               </motion.li>
