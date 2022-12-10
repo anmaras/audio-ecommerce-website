@@ -1,10 +1,10 @@
 export const imageUrls = (url) => {
-  const input = url?.startsWith('/src');
+  const input = url?.startsWith('./');
 
   if (input) {
-    return url;
+    return `${url?.substring(1)}`;
   } else {
-    return `/src${url?.substring(1)}`;
+    return url;
   }
 };
 
@@ -31,4 +31,8 @@ export const formatName = (name) => {
 
     return newName.join(' ');
   }
+};
+
+export const scrollToTop = () => {
+  window.scrollTo({ top: true });
 };
