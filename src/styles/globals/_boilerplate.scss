@@ -6,11 +6,11 @@
   grid-template-rows: auto 1fr auto;
   flex-direction: column;
   min-height: 100vh;
-  background-color: var(--light-grey);
   user-select: none;
 }
 
 .main {
+  background-color: var(--light-grey);
   overflow: hidden;
   &__homePageWrapper,
   &__productsPageWrapper {
