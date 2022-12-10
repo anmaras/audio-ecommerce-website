@@ -65,7 +65,7 @@ export const ProductsProvider = ({ children }) => {
     });
   };
 
-  const fetchSingleProduct = async (slug) => {
+  const fetchSingleProduct = (slug) => {
     dispatch({
       type: GET_SINGLE_PRODUCT_SUCCESS,
       payload: slug,
