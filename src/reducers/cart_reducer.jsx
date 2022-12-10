@@ -31,7 +31,7 @@ const cart_reducer = (state, action) => {
         price: product.price,
         id: id,
         name: product.name,
-        image: `/src/assets/cart/image-${product.slug}.jpg`,
+        image: `/assets/cart/image-${product.slug}.jpg`,
         slug: product.slug,
         category: product.category,
       };
