@@ -8,9 +8,9 @@ const PageHero = ({ category }) => {
     <div className={style.pageHero}>
       <motion.h2
         className="pageHero__title"
-        variants={pageHeroTitleVariant}
-        initial="initial"
-        animate="animate"
+        // variants={pageHeroTitleVariant}
+        // initial="initial"
+        // animate="animate"
       >
         {category}
       </motion.h2>

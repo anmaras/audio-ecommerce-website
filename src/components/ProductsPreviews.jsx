@@ -28,10 +28,10 @@ const ProductsPreviews = () => {
               <m.li
                 key={id}
                 className={style['homepage__item']}
-                variants={productPreviewsVariant}
-                initial="initial"
-                whileInView="whileInView"
-                viewport={{ once: true }}
+                // variants={productPreviewsVariant}
+                // initial="initial"
+                // whileInView="whileInView"
+                // viewport={{ once: true }}
               >
                 {decoration ? (
                   <img
@@ -44,6 +44,20 @@ const ProductsPreviews = () => {
                   desktop={desktop}
                   tablet={tablet}
                   mobile={mobile}
+                  widthMob={title === 'zx9' ? '320' : '654'}
+                  heightMob={
+                    title === 'zx9' ? '388' : title === 'zx7' ? '640' : '400'
+                  }
+                  widthTab={
+                    title === 'zx9' ? '366' : title === 'zx7' ? '689' : '678'
+                  }
+                  heightTab={
+                    title === 'zx9' ? '444' : title === 'zx7' ? '320' : '640'
+                  }
+                  widthDesk={
+                    title === 'zx9' ? '756' : title === 'zx7' ? '1110' : '540'
+                  }
+                  heightDesk={title === 'zx9' ? '918' : '320'}
                   alt={`${title} ${category} preview image`}
                 />
                 {title === 'zx9' ? (

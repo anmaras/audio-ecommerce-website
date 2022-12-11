@@ -13,14 +13,34 @@ const NewProduct = () => {
       <section className={style.newProduct}>
         <div className={style['newProduct__wrapper']}>
           <m.picture
-            variants={newProductVariant}
-            initial="initial"
-            animate="animate"
+          // variants={newProductVariant}
+          // initial="initial"
+          // animate="animate"
           >
-            <source media="(min-width:1220px)" srcSet={desktopUrl} />
-            <source media="(min-width:600px)" srcSet={tabletUrl} />
-            <source media="(min-width:375px)" srcSet={mobileUrl} />
-            <img src={mobileUrl} alt="xx99 mark 2 headphones image" />
+            <source
+              media="(min-width:1220px)"
+              srcSet={desktopUrl}
+              width="1440"
+              height="633"
+            />
+            <source
+              media="(min-width:600px)"
+              srcSet={tabletUrl}
+              width="1536"
+              height="1280"
+            />
+            <source
+              media="(min-width:375px)"
+              srcSet={mobileUrl}
+              width="750"
+              height="1000"
+            />
+            <img
+              src={mobileUrl}
+              alt="xx99 mark 2 headphones image"
+              width="750"
+              height="1000"
+            />
           </m.picture>
           <div className={style['newProduct__textWrapper']}>
             <p

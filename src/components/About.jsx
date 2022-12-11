@@ -15,25 +15,43 @@ const About = () => {
   return (
     <LazyMotion features={domAnimation}>
       <section className={style.about}>
-        <m.div
-          variants={aboutVariant}
-          initial="initial"
-          whileInView="whileInView"
-          viewport={{ once: true }}
+        <m.picture
+        // variants={aboutVariant}
+        // initial="initial"
+        // whileInView="whileInView"
+        // viewport={{ once: true }}
         >
-          <Pictures
-            desktop={desktop}
-            tablet={tablet}
-            mobile={mobile}
-            alt={'man listening to music with headphones'}
+          <source
+            media="(min-width:1440px)"
+            srcSet={desktop}
+            width="540"
+            height="588"
           />
-        </m.div>
+          <source
+            media="(min-width:768px)"
+            srcSet={tablet}
+            width="1378"
+            height="600"
+          />
+          <source
+            media="(min-width:375px)"
+            srcSet={mobile}
+            width="654"
+            height="600"
+          />
+          <img
+            src={mobile}
+            alt="man listening to music with headphones"
+            width="654"
+            height="600"
+          />
+        </m.picture>
         <div className={style['about__text-wrapper']}>
           <m.h2
-            variants={aboutTitleVariant}
-            initial="initial"
-            whileInView="whileInView"
-            viewport={{ once: true }}
+            // variants={aboutTitleVariant}
+            // initial="initial"
+            // whileInView="whileInView"
+            // viewport={{ once: true }}
             className={style['about__title']}
           >
             bringing you the <span className={style['about__span']}>best</span>{' '}
@@ -41,10 +59,10 @@ const About = () => {
           </m.h2>
           <m.p
             className={style['about__text']}
-            variants={aboutTextVariant}
-            initial="initial"
-            whileInView="whileInView"
-            viewport={{ once: true }}
+            // variants={aboutTextVariant}
+            // initial="initial"
+            // whileInView="whileInView"
+            // viewport={{ once: true }}
           >
             Located at the heart of New York City, Audiophile is the premier
             store for high end headphones, earphones, speakers, and audio

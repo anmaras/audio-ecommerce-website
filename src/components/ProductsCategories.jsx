@@ -34,24 +34,30 @@ const ProductsList = ({ category }) => {
           return (
             <li className={style['categories__item']} key={id}>
               <motion.div
-                variants={categoryImgVariant}
-                initial="initial"
-                whileInView="whileInView"
-                transition={{ delay: index * 0.2 }}
-                viewport={{ once: true }}
+              // variants={categoryImgVariant}
+              // initial="initial"
+              // whileInView="whileInView"
+              // transition={{ delay: index * 0.2 }}
+              // viewport={{ once: true }}
               >
                 <Pictures
                   desktop={desktop}
                   tablet={tablet}
                   mobile={mobile}
                   alt={`${name} picture`}
+                  widthMob="654"
+                  heightMob="704"
+                  widthTab="1378"
+                  heightTab="704"
+                  widthDesk="1080"
+                  heightDesk="1120"
                 />
               </motion.div>
               <motion.div
                 className={style['categories__wrapper']}
-                variants={categoryText}
-                initial="initial"
-                animate="animate"
+                // variants={categoryText}
+                // initial="initial"
+                // animate="animate"
               >
                 <p className="overline">new product</p>
                 <h2 className={style['categories__title']}>{name}</h2>
