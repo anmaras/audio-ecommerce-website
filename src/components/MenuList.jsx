@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { links } from '../utils/constants';
-import buttonImgUrl from '/assets/shared/desktop/icon-arrow-right.svg';
+import buttonImgUrl from '../../public/assets/shared/desktop/icon-arrow-right-svg';
 import { useProductsContext } from '../context/products_context';
 import style from '../styles/components/MenuList.module.scss';
 
