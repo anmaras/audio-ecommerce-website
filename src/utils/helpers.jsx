@@ -33,6 +33,27 @@ export const formatName = (name) => {
   }
 };
 
-export const scrollToTop = () => {
-  window.scrollTo({ top: true });
+export const setImageSize = (setImgDimensions, imageUrl) => {
+  let obj = {};
+  imageUrl.forEach((url, index) => {
+    const image = new Image();
+    image.src = url;
+
+    image.onload = () => {
+      if (index === 0) {
+        obj['mobHeight'] = image.height;
+        obj['mobWidth'] = image.width;
+      }
+      if (index === 1) {
+        obj['tabHeight'] = image.height;
+        obj['tabWidth'] = image.width;
+      }
+      if (index === 2) {
+        obj['deskHeight'] = image.height;
+        obj['deskWidth'] = image.width;
+      }
+
+      setImgDimensions(obj);
+    };
+  });
 };
