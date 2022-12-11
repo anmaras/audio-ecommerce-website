@@ -4,6 +4,7 @@ import {
   GET_PRODUCTS_BEGIN,
   GET_PRODUCTS_SUCCESS,
   GET_PRODUCTS_ERROR,
+  GET_PRODUCTS_CATEGORY_BEGIN,
   GET_PRODUCTS_CATEGORY,
   GET_SINGLE_PRODUCT_SUCCESS,
   TOGGLE_CART,
@@ -43,6 +44,10 @@ const product_reducer = (state, action) => {
   }
 
   /* category */
+  if (action.type === GET_PRODUCTS_CATEGORY_BEGIN) {
+    return { ...state, products_loading: true };
+  }
+
   if (action.type === GET_PRODUCTS_CATEGORY) {
     /* make a copy from the main array of products */
     const products = [...state.products];
@@ -53,6 +58,7 @@ const product_reducer = (state, action) => {
     return {
       ...state,
       category_products: categoryProducts,
+      products_loading: false,
     };
   }
 
