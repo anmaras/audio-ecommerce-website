@@ -9,6 +9,7 @@ import {
   GET_PRODUCTS_BEGIN,
   GET_PRODUCTS_SUCCESS,
   GET_PRODUCTS_ERROR,
+  GET_PRODUCTS_CATEGORY_BEGIN,
   GET_PRODUCTS_CATEGORY,
   GET_SINGLE_PRODUCT_SUCCESS,
   TOGGLE_CART,
@@ -59,6 +60,7 @@ export const ProductsProvider = ({ children }) => {
   };
 
   const getProductsByCategory = (category) => {
+    dispatch({ type: GET_PRODUCTS_CATEGORY_BEGIN });
     dispatch({
       type: GET_PRODUCTS_CATEGORY,
       payload: category,
