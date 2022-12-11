@@ -123,6 +123,7 @@
   &__list {
     @extend .features__list;
     gap: rem(60);
+    align-items: center;
 
     @include breakpoint(medium) {
       grid-auto-flow: column;
