@@ -26,10 +26,10 @@ export default function ProductsPage() {
         <section className="main__productsPageWrapper">
           <ProductsCategories category={category} />
           <motion.div
-            variants={menuListVariant}
-            initial="initial"
-            whileInView="whileInView"
-            viewport={{ once: true }}
+          // variants={menuListVariant}
+          // initial="initial"
+          // whileInView="whileInView"
+          // viewport={{ once: true }}
           >
             <MenuList />
           </motion.div>

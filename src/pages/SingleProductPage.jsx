@@ -1,11 +1,12 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Product, About, GoBackButton, Spinner } from '../components/index';
 import { useParams } from 'react-router-dom';
 import { useProductsContext } from '../context/products_context';
 
 export default function SingleProductPage() {
   const { id, category } = useParams();
-  const { products_loading: loading } = useProductsContext();
+  const { products_loading: loading, single_product: product } =
+    useProductsContext();
 
   if (loading) {
     return <Spinner />;
