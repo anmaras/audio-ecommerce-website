@@ -1,23 +1,35 @@
-import React, { useEffect } from 'react';
-import { Product, About, GoBackButton, Spinner } from '../components/index';
+import React from 'react';
+import {
+  Product,
+  MenuList,
+  GoBackButton,
+  About,
+  Spinner,
+} from '../components/index';
 import { useParams } from 'react-router-dom';
-import { useProductsContext } from '../context/products_context';
+import { useFetchProduct } from '../hooks/useFetchProduct';
+import { motion } from 'framer-motion';
 
 export default function SingleProductPage() {
-  const { id, category } = useParams();
-  const { products_loading: loading, single_product: product } =
-    useProductsContext();
+  const { id } = useParams();
 
-  if (loading) {
+  const { data: product, isLoading } = useFetchProduct(id);
+
+  if (isLoading) {
     return <Spinner />;
   }
   return (
     <main className="main singleProduct">
-      <GoBackButton category={`/products/${category}`} />
-      <section className="main__productPageWrapper">
-        <Product productId={id} />
+      <GoBackButton />
+      <motion.section
+        className="main__productPageWrapper"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1, transition: { duration: 0.5 } }}
+      >
+        <Product product={product} />
+        <MenuList />
         <About />
-      </section>
+      </motion.section>
     </main>
   );
 }
