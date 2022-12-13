@@ -9,7 +9,14 @@ const FormRadioButtons = (props) => {
       {({ field }) => {
         return options.map((option) => {
           return (
-            <div className={style['checkout__formControls']} key={option.key}>
+            <div
+              className={
+                field.value === option.value
+                  ? style['checkout__formControls--checked']
+                  : style['checkout__formControls--radio']
+              }
+              key={option.key}
+            >
               <input
                 type="radio"
                 id={option.value}

@@ -7,22 +7,29 @@ function FormInput(props) {
   const { label, name, ...rest } = props;
   return (
     <div className={style['checkout__formControls']}>
-      <label htmlFor={name} className="form__label">
-        {label}{' '}
-      </label>
       <Field id={name} name={name} {...rest}>
         {({ field, meta: { touched, error } }) => {
           return (
-            <input
-              id={name}
-              {...field}
-              {...rest}
-              className={
-                touched && error
-                  ? [style['checkout__input--error'], 'form__input'].join(' ')
-                  : 'form__input'
-              }
-            />
+            <>
+              <label
+                htmlFor={name}
+                className={
+                  touched && error ? 'form__label--error' : 'form__label'
+                }
+              >
+                {label}
+              </label>
+              <input
+                id={name}
+                {...field}
+                {...rest}
+                className={
+                  touched && error
+                    ? [style['checkout__input--error'], 'form__input'].join(' ')
+                    : 'form__input'
+                }
+              />
+            </>
           );
         }}
       </Field>

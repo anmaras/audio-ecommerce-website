@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Summary from '../Summary';
-import logoUrl from '/assets/checkout/icon-cash-on-delivery.svg';
+import logoUrl from '../../assets/checkout/icon-cash-on-delivery.svg';
 import style from '../../styles/components/Form.module.scss';
 import { Formik, Form } from 'formik';
 import FormControl from './FormControl';
@@ -44,7 +44,7 @@ const FormContainer = () => {
         validationSchema={validationSchema}
         onSubmit={onSubmit}
       >
-        {() => (
+        {(props) => (
           <section className={style.checkout}>
             <Form className={style['checkout__form']}>
               <fieldset className={style['checkout__fieldset--inputs']}>
@@ -134,38 +134,39 @@ const FormContainer = () => {
                   />
                   {radioValue === 'emoney' ? (
                     <>
-                      <FormControl
-                        control="input"
-                        type="text"
-                        label="e-Money number"
-                        name="e_number"
-                        placeholder="238521993"
-                      />
-                      <FormControl
-                        control="input"
-                        type="text"
-                        label="e-Money pin"
-                        name="e_pin"
-                        placeholder="6891"
-                      />
+                      <div className={style['checkout__emoneyInfo']}>
+                        <FormControl
+                          control="input"
+                          type="text"
+                          label="e-Money number"
+                          name="e_number"
+                          placeholder="238521993"
+                        />
+                        <FormControl
+                          control="input"
+                          type="text"
+                          label="e-Money pin"
+                          name="e_pin"
+                          placeholder="6891"
+                        />
+                      </div>
                     </>
-                  ) : null}
+                  ) : (
+                    <div className={style['checkout__cashNotification']}>
+                      <img
+                        className={style['checkout__logo']}
+                        src={logoUrl}
+                        alt="cash on delivery icon"
+                      />
+                      <p>
+                        The ‘Cash on Delivery’ option enables you to pay in cash
+                        when our delivery courier arrives at your residence.
+                        Just make sure your address is correct so that your
+                        order will not be cancelled.
+                      </p>
+                    </div>
+                  )}
                 </div>
-                {radioValue === 'cash' ? (
-                  <div className={style['checkout__cashNotification']}>
-                    <img
-                      className={style['checkout__logo']}
-                      src={logoUrl}
-                      alt="cash on delivery icon"
-                    />
-                    <p>
-                      The ‘Cash on Delivery’ option enables you to pay in cash
-                      when our delivery courier arrives at your residence. Just
-                      make sure your address is correct so that your order will
-                      not be cancelled.
-                    </p>
-                  </div>
-                ) : null}
               </fieldset>
               <fieldset className={style['checkout__fieldset--summary']}>
                 <Summary />
