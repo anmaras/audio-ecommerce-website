@@ -1,10 +1,6 @@
-export const imageUrls = (url) => {
-  const input = url?.startsWith('./');
-
-  if (input) {
-    return `${url?.substring(1)}`;
-  } else {
-    return url;
+export const getImageUrl = (name) => {
+  if (name) {
+    return new URL(`../${name.substring(2)}`, import.meta.url).href;
   }
 };
 
@@ -33,27 +29,6 @@ export const formatName = (name) => {
   }
 };
 
-export const setImageSize = (setImgDimensions, imageUrl) => {
-  let obj = {};
-  imageUrl.forEach((url, index) => {
-    const image = new Image();
-    image.src = url;
-
-    image.onload = () => {
-      if (index === 0) {
-        obj['mobHeight'] = image.height;
-        obj['mobWidth'] = image.width;
-      }
-      if (index === 1) {
-        obj['tabHeight'] = image.height;
-        obj['tabWidth'] = image.width;
-      }
-      if (index === 2) {
-        obj['deskHeight'] = image.height;
-        obj['deskWidth'] = image.width;
-      }
-
-      setImgDimensions(obj);
-    };
-  });
+export const scrollToTop = () => {
+  setTimeout(() => window.scrollTo({ top: 0, behavior: 'smooth' }), 0);
 };
