@@ -73,7 +73,7 @@
     font-weight: 700;
   }
 
-  &__formControls:not(&__formControls:has(input[type='radio'])) {
+  &__formControls {
     display: grid;
     grid-template-columns: auto 1fr;
     align-items: center;
@@ -99,16 +99,17 @@
       caret-color: var(--raw-sienna);
 
       &:focus {
-        outline-color: var(--raw-sienna);
+        border-color: var(--raw-sienna);
+        outline: 0;
       }
     }
   }
 
-  &__formControls:has(input[type='radio']) {
+  &__formControls--radio {
     padding: rem(16);
     display: inline;
     border-radius: var(--border-radius);
-    border: thin solid var(--normal-grey);
+    border: 2px solid var(--normal-grey);
     display: flex;
     align-items: center;
     gap: rem(16);
@@ -135,8 +136,19 @@
     }
   }
 
-  &__formControls:has(input[type='radio']:checked) {
-    outline: 2px solid var(--raw-sienna);
+  &__formControls--checked {
+    @extend .checkout__formControls--radio;
+    border: 2px solid var(--raw-sienna);
+  }
+
+  &__emoneyInfo {
+    width: 100%;
+    display: grid;
+    gap: rem(24);
+
+    @include breakpoint(medium) {
+      grid-template-columns: 1fr 1fr;
+    }
   }
 
   &__cashNotification {
@@ -147,18 +159,15 @@
 
     @include breakpoint(medium) {
       grid-template-columns: auto 1fr;
+      grid-column: 1/-1;
     }
   }
 
   &__input--error {
     border-color: red !important;
   }
-  &__label--error {
-    color: red;
-  }
 
-  /* select the label if there is error p element inside parent */
-  &__formControls:has(p) > label {
+  &__label--error {
     color: red;
   }
 }
