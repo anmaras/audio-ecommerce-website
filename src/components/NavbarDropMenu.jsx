@@ -1,12 +1,12 @@
 import React from 'react';
 import { MenuList, Backdrop } from './index';
-import { useProductsContext } from '../context/products_context';
+import { useMenuCartContext } from '../context/menu_cart_context';
 import style from '../styles/components/NavbarDropMenu.module.scss';
 import { AnimatePresence, motion } from 'framer-motion';
 import { navbarDropMenuVariant } from '../AnimationVariants/variants';
 
 const NavbarDropMenu = () => {
-  const { isMenuOpen } = useProductsContext();
+  const { isMenuOpen, closeMenu } = useMenuCartContext();
 
   return (
     <AnimatePresence>
@@ -20,7 +20,7 @@ const NavbarDropMenu = () => {
             animate="animate"
             exit="exit"
           >
-            <MenuList />
+            <MenuList closeMenu={closeMenu} />
           </motion.div>
           <Backdrop />
         </div>

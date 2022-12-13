@@ -1,34 +1,16 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { useProductsContext } from '../context/products_context';
 import { Pictures, Amount } from '../components/index';
 import style from '../styles/components/Product.module.scss';
 import { formatPrice, splitText } from '../utils/helpers';
 import { useCartContext } from '../context/cart_context';
-import { motion } from 'framer-motion';
-import { imageUrls } from '../utils/helpers';
-import {
-  categoryImgVariant,
-  categoryText,
-  featuresTextVariant,
-  inTheBoxVariant,
-  featuresVariant,
-  imgGalleryVariant,
-  altVariant,
-} from '../AnimationVariants/variants';
+import { useMenuCartContext } from '../context/menu_cart_context';
+import { getImageUrl, scrollToTop } from '../utils/helpers';
 
-const Product = ({ productId }) => {
-  const {
-    single_product: product,
-    fetchSingleProduct,
-    products,
-  } = useProductsContext();
+const Product = ({ product }) => {
   const { addToCart } = useCartContext();
   const [amount, setAmount] = useState(1);
-
-  useEffect(() => {
-    fetchSingleProduct(productId);
-  }, [products]);
+  const { toggleCart } = useMenuCartContext();
 
   const increase = () => {
     setAmount((prev) => (prev === amount ? prev + 1 : amount));
@@ -40,32 +22,20 @@ const Product = ({ productId }) => {
 
   return (
     <>
-      <section className={style.product}>
-        <motion.div
-        // variants={categoryImgVariant}
-        // initial="initial"
-        // whileInView="whileInView"
-        // viewport={{ once: true }}
-        >
-          <Pictures
-            desktop={product?.image?.desktop}
-            tablet={product?.image?.tablet}
-            mobile={product?.image?.mobile}
-            widthMob="654"
-            heightMob="654"
-            widthTab="562"
-            heightTab="960"
-            widthDesk="1080"
-            heightDesk="1120"
-            alt={`${product?.name} image`}
-          />
-        </motion.div>
-        <motion.div
-          className={style['product__textWrapper']}
-          // variants={categoryText}
-          // initial="initial"
-          // animate="animate"
-        >
+      <div className={style.product}>
+        <Pictures
+          desktop={product?.image?.desktop}
+          tablet={product?.image?.tablet}
+          mobile={product?.image?.mobile}
+          widthMob="654"
+          heightMob="654"
+          widthTab="562"
+          heightTab="960"
+          widthDesk="1080"
+          heightDesk="1120"
+          alt={`${product?.name} image`}
+        />
+        <div className={style['product__textWrapper']}>
           <p className="overline">new product</p>
           <h2 className={style['product__title']}>{product?.name}</h2>
           <p className={style['product__description']}>
@@ -79,35 +49,26 @@ const Product = ({ productId }) => {
             <button
               type="button"
               className="button-1"
-              onClick={() => addToCart(product, amount, product?.id)}
+              onClick={() => {
+                addToCart(product, amount, product?.id);
+                toggleCart();
+              }}
             >
               add to cart
             </button>
           </div>
-        </motion.div>
-      </section>
+        </div>
+      </div>
 
       {/* features */}
-
-      <motion.section
-        className={style.features}
-        // variants={featuresVariant}
-        // initial="initial"
-        // animate="animate"
-      >
-        <motion.div
-          className={style['features__textWrapper']}
-          // variants={featuresTextVariant}
-        >
+      <div className={style.features}>
+        <div className={style['features__textWrapper']}>
           <h3 className={style['features__title']}>features</h3>
           <div className={style['features__description']}>
             {splitText(product?.features)}
           </div>
-        </motion.div>
-        <motion.div
-          className={style['features__insidesWrapper']}
-          // variants={inTheBoxVariant}
-        >
+        </div>
+        <div className={style['features__insidesWrapper']}>
           <h3 className={style['features__title']}>in the box</h3>
           <ul className={style['features__list']}>
             {product?.includes?.map((item, index) => {
@@ -121,140 +82,94 @@ const Product = ({ productId }) => {
               );
             })}
           </ul>
-        </motion.div>
-      </motion.section>
+        </div>
+      </div>
 
       {/* gallery */}
-
-      <section className={style.gallery}>
-        <motion.div
-        // variants={imgGalleryVariant}
-        // initial="initial"
-        // whileInView="whileInView"
-        // viewport={{ once: true }}
-        >
-          <Pictures
-            desktop={product?.gallery?.first?.desktop}
-            tablet={product?.gallery?.first?.tablet}
-            mobile={product?.gallery?.first?.mobile}
-            widthMob="654"
-            heightMob="348"
-            widthTab="554"
-            heightTab="348"
-            widthDesk="445"
-            heightDesk="280"
-          />
-        </motion.div>
-        <motion.div
-        // variants={imgGalleryVariant}
-        // initial="initial"
-        // whileInView="whileInView2"
-        // viewport={{ once: true }}
-        >
-          <Pictures
-            desktop={product?.gallery?.second?.desktop}
-            tablet={product?.gallery?.second?.tablet}
-            mobile={product?.gallery?.second?.mobile}
-            widthMob="654"
-            heightMob="348"
-            widthTab="554"
-            heightTab="348"
-            widthDesk="445"
-            heightDesk="280"
-          />
-        </motion.div>
-        <motion.div
-        // variants={imgGalleryVariant}
-        // initial="initial"
-        // whileInView="whileInView3"
-        // viewport={{ once: true }}
-        >
-          <Pictures
-            desktop={product?.gallery?.third?.desktop}
-            tablet={product?.gallery?.third?.tablet}
-            mobile={product?.gallery?.third?.mobile}
-            widthMob="654"
-            heightMob="736"
-            widthTab="790"
-            heightTab="736"
-            widthDesk="635"
-            heightDesk="592"
-          />
-        </motion.div>
-      </section>
+      <div className={style.gallery}>
+        <Pictures
+          desktop={product?.gallery?.first?.desktop}
+          tablet={product?.gallery?.first?.tablet}
+          mobile={product?.gallery?.first?.mobile}
+          widthMob="654"
+          heightMob="348"
+          widthTab="554"
+          heightTab="348"
+          widthDesk="445"
+          heightDesk="280"
+        />
+        <Pictures
+          desktop={product?.gallery?.second?.desktop}
+          tablet={product?.gallery?.second?.tablet}
+          mobile={product?.gallery?.second?.mobile}
+          widthMob="654"
+          heightMob="348"
+          widthTab="554"
+          heightTab="348"
+          widthDesk="445"
+          heightDesk="280"
+        />
+        <Pictures
+          desktop={product?.gallery?.third?.desktop}
+          tablet={product?.gallery?.third?.tablet}
+          mobile={product?.gallery?.third?.mobile}
+          widthMob="654"
+          heightMob="736"
+          widthTab="790"
+          heightTab="736"
+          widthDesk="635"
+          heightDesk="592"
+        />
+      </div>
 
       {/* alternatives */}
-
-      <motion.section
-        className={style.alternatives}
-        // initial={{ opacity: 0 }}
-        // animate={{ opacity: 1 }}
-      >
+      <div className={style.alternatives}>
         <h2 className={style['alternatives__title']}>you may also like</h2>
         <ul className={style['alternatives__list']}>
           {product?.others?.map((other, index) => {
             const { desktop, tablet, mobile } = other?.image;
             const { name, slug, category } = other;
             return (
-              <motion.li
-                className={style['alternatives__item']}
-                key={index}
-                // variants={altVariant}
-                // initial="initial"
-                // whileInView="whileInView"
-                // transition={{ delay: index * 0.2 }}
-                // viewport={{ once: true }}
-              >
-                <picture
-                // variants={newProductVariant}
-                // initial="initial"
-                // animate="animate"
-                >
+              <li className={style['alternatives__item']} key={index}>
+                <picture>
                   <source
                     media="(min-width:1440px)"
-                    srcSet={imageUrls(desktop)}
+                    srcSet={getImageUrl(desktop)}
                     width="700"
                     height="636"
                   />
                   <source
                     media="(min-width:768px)"
-                    srcSet={imageUrls(tablet)}
+                    srcSet={getImageUrl(tablet)}
                     width="446"
                     height="636"
                   />
                   <source
                     media="(min-width:375px)"
-                    srcSet={imageUrls(mobile)}
+                    srcSet={getImageUrl(mobile)}
                     width="654"
                     height="240"
                   />
                   <img
-                    src={imageUrls(mobile)}
+                    src={getImageUrl(mobile)}
                     alt=""
                     width="654"
                     height="240"
                   />
                 </picture>
-                {/* <Pictures
-                  desktop={desktop}
-                  tablet={tablet}
-                  mobile={mobile}
-                  widthMob="654"
-                  heightMob="240"
-                  widthTab="446"
-                  heightTab="636"
-                  widthDesk="700"
-                  heightDesk="636"
-                /> */}
                 <h5>{name}</h5>
-                <Link to={`/products/${category}/${slug}`} className="button-1">
+                <Link
+                  to={`/products/${category}/${slug}`}
+                  className="button-1"
+                  onClick={scrollToTop}
+                >
                   see product
                 </Link>
-              </motion.li>
+              </li>
             );
           })}
         </ul>
-      </motion.section>
+      </div>
     </>
   );
 };

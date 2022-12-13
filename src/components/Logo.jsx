@@ -1,11 +1,9 @@
 import React from 'react';
-import logoUrl from '/assets/shared/desktop/logo.svg';
+import logoUrl from '../assets/shared/desktop/logo.svg';
 import { Link } from 'react-router-dom';
-import { useProductsContext } from '../context/products_context';
+import { scrollToTop } from '../utils/helpers';
 
 const Logo = ({ className }) => {
-  const { closeMenu, closeCart } = useProductsContext();
-
   return (
     <Link to="/">
       <img
@@ -14,10 +12,7 @@ const Logo = ({ className }) => {
         width="143"
         height="25"
         className={className ? className : 'logo'}
-        onClick={() => {
-          closeMenu();
-          closeCart();
-        }}
+        onClick={scrollToTop}
       />
     </Link>
   );

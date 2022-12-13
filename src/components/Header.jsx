@@ -1,13 +1,13 @@
 import React from 'react';
-import hamburgerUrl from '/assets/shared/tablet/icon-hamburger.svg';
-import cartUrl from '/assets/shared/desktop/icon-cart.svg';
-import { useProductsContext } from '../context/products_context';
+import hamburgerUrl from '../assets/shared/tablet/icon-hamburger.svg';
+import cartUrl from '../assets/shared/desktop/icon-cart.svg';
+import { useMenuCartContext } from '../context/menu_cart_context';
 import { useCartContext } from '../context/cart_context';
 import { NavbarLinks, Logo } from './index';
 import style from '../styles/components/Header.module.scss';
 
 const Header = () => {
-  const { toggleMenu, toggleCart } = useProductsContext();
+  const { toggleMenu, toggleCart } = useMenuCartContext();
   const { total_items: total } = useCartContext();
 
   return (

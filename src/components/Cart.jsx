@@ -2,7 +2,7 @@ import React from 'react';
 import style from '../styles/components/Cart.module.scss';
 import { Amount } from './index';
 import { Link } from 'react-router-dom';
-import { useProductsContext } from '../context/products_context';
+import { useMenuCartContext } from '../context/menu_cart_context';
 import { useCartContext } from '../context/cart_context';
 import { formatPrice, formatName } from '../utils/helpers';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -11,9 +11,10 @@ import {
   navBarMenuBackDrop,
   navbarDropMenuVariant,
 } from '../AnimationVariants/variants';
+import { getImageUrl } from '../utils/helpers';
 
 const Cart = () => {
-  const { isCartOpen, toggleCart, closeCart } = useProductsContext();
+  const { isCartOpen, toggleCart, closeCart } = useMenuCartContext();
   const {
     cart,
     clearCart,
@@ -56,7 +57,7 @@ const Cart = () => {
                   const { id, name, image, price, amount } = item;
                   return (
                     <li key={uuid()} className={style['cart__item']}>
-                      <img src={image} alt={name} />
+                      <img src={getImageUrl(image)} alt={name} />
                       <div>
                         <p>{formatName(name)}</p>
                         <p>{formatPrice(price * amount)}</p>

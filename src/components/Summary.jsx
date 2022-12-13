@@ -3,8 +3,9 @@ import style from '../styles/components/Summary.module.scss';
 import { useCartContext } from '../context/cart_context';
 import { formatName, formatPrice } from '../utils/helpers';
 import uuid from 'react-uuid';
+import { getImageUrl } from '../utils/helpers';
 
-const Summary = ({ onSubmit }) => {
+const Summary = () => {
   const {
     cart,
     shipping_fee: shipping,
@@ -20,12 +21,11 @@ const Summary = ({ onSubmit }) => {
         <ul className={style['summary__list']}>
           {cart.map((item) => {
             const { amount, image, name, price } = item;
-            console.log(image);
             return (
               <li key={uuid()} className={style['summary__item']}>
                 <img
                   className={style['summary__image']}
-                  src={image}
+                  src={getImageUrl(image)}
                   alt={name}
                 />
                 <div className={style['summary__product']}>
