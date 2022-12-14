@@ -103,6 +103,7 @@ body {
   &__label--error {
     @extend .form__label;
     color: red;
+    transition: 0.5s;
   }
 
   &__input {
