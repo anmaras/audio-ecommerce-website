@@ -6,6 +6,7 @@ import { Formik, Form } from 'formik';
 import FormControl from './FormControl';
 import CheckoutModal from '../CheckoutModal';
 import { validationSchema } from '../../utils/validationSchema';
+import { motion } from 'framer-motion';
 
 const FormContainer = () => {
   const [radioValue, setRadioValue] = useState('emoney');
@@ -134,7 +135,11 @@ const FormContainer = () => {
                   />
                   {radioValue === 'emoney' ? (
                     <>
-                      <div className={style['checkout__emoneyInfo']}>
+                      <motion.div
+                        className={style['checkout__emoneyInfo']}
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                      >
                         <FormControl
                           control="input"
                           type="text"
@@ -149,10 +154,14 @@ const FormContainer = () => {
                           name="e_pin"
                           placeholder="6891"
                         />
-                      </div>
+                      </motion.div>
                     </>
                   ) : (
-                    <div className={style['checkout__cashNotification']}>
+                    <motion.div
+                      className={style['checkout__cashNotification']}
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                    >
                       <img
                         className={style['checkout__logo']}
                         src={logoUrl}
@@ -164,7 +173,7 @@ const FormContainer = () => {
                         Just make sure your address is correct so that your
                         order will not be cancelled.
                       </p>
-                    </div>
+                    </motion.div>
                   )}
                 </div>
               </fieldset>
