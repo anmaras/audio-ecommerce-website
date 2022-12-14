@@ -1,18 +1,15 @@
-import { animate } from 'framer-motion';
-
 const opacityOff = 0;
 const opacityOn = 1;
 
 /* navbar menu variants start */
 export const navbarDropMenuVariant = {
   initial: {
-    y: '-100vh',
+    y: '-123vh',
   },
   animate: {
     y: 0,
     transition: {
       type: 'tween',
-      ease: 'anticipate',
       duration: 0.5,
     },
   },
