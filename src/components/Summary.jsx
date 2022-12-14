@@ -59,7 +59,7 @@ const Summary = () => {
         </div>
         <button
           type="submit"
-          className="button-1"
+          className={cart.length ? 'button-1' : 'button-inactive'}
           disabled={cart.length ? false : true}
         >
           continue & pay
