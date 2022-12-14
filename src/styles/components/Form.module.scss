@@ -1,6 +1,8 @@
 @use '../utils' as *;
 @use '../globals/' as *;
 
+$transition-duration: 0.5s;
+
 .checkout {
   &__title {
     margin-bottom: rem(48);
@@ -55,6 +57,7 @@
   }
 
   &__fieldset--inputs > div:nth-child(7) {
+    margin-bottom: unset;
     @include breakpoint(medium) {
       grid-template-columns: 1fr 1fr;
       column-gap: rem(16);
@@ -81,6 +84,7 @@
     label {
       grid-column: 1/2;
       cursor: pointer;
+      transition: $transition-duration;
     }
 
     p {
@@ -101,6 +105,7 @@
       &:focus {
         border-color: var(--raw-sienna);
         outline: 0;
+        transition: $transition-duration;
       }
     }
   }
@@ -128,6 +133,7 @@
       border-style: solid;
       aspect-ratio: 1;
       cursor: pointer;
+      transition: $transition-duration;
 
       &:checked {
         background-color: var(--raw-sienna);
@@ -139,6 +145,7 @@
   &__formControls--checked {
     @extend .checkout__formControls--radio;
     border: 2px solid var(--raw-sienna);
+    transition: $transition-duration;
   }
 
   &__emoneyInfo {
@@ -148,26 +155,32 @@
 
     @include breakpoint(medium) {
       grid-template-columns: 1fr 1fr;
+      grid-column: 1/-1;
     }
   }
 
   &__cashNotification {
     display: grid;
     justify-items: center;
-    gap: rem(32);
+    gap: rem(16);
     padding-inline: rem(32);
+    grid-auto-rows: min-content;
+    min-height: rem(196);
 
     @include breakpoint(medium) {
       grid-template-columns: auto 1fr;
       grid-column: 1/-1;
+      min-height: rem(86);
     }
   }
 
   &__input--error {
     border-color: red !important;
+    transition: $transition-duration;
   }
 
   &__label--error {
     color: red;
+    transition: $transition-duration;
   }
 }

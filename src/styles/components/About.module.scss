@@ -7,6 +7,11 @@
   justify-items: center;
   overflow: hidden;
 
+  picture {
+    overflow: hidden;
+    border-radius: var(--border-radius);
+  }
+
   @include breakpoint(xlarge) {
     grid-template-columns: repeat(2, 1fr);
     justify-items: flex-end;
