@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { links } from '../utils/constants';
+import { scrollToTop } from '../utils/helpers';
 
 const CategoriesList = ({ className }) => {
   return (
@@ -9,7 +10,7 @@ const CategoriesList = ({ className }) => {
         const { id, text, url } = link;
         return (
           <li key={id} className="list__link">
-            <Link to={url} preventScrollReset={true}>
+            <Link to={url} onClick={scrollToTop}>
               {text}
             </Link>
           </li>
