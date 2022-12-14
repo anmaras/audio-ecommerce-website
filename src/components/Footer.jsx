@@ -1,11 +1,8 @@
 import React from 'react';
-import { Logo, NavbarLinks } from './index';
+import { Logo } from './index';
 import { socialLinks } from '../utils/constants';
 import style from '../styles/components/Footer.module.scss';
-
-function getImageUrl(name) {
-  return new URL(`../${name.substring(2)}`, import.meta.url).href;
-}
+import { getImageUrl } from '../utils/helpers';
 
 const Footer = () => {
   return (
@@ -13,7 +10,6 @@ const Footer = () => {
       <div className={style['footer__wrapper']}>
         <div className={style['footer__cosmetic']}></div>
         <Logo className={style['footer__logo']} />
-        {/* <NavbarLinks className={style['footer__list']} /> */}
         <p className={style['footer__info']}>
           Audiophile is an all in one stop to fulfill your audio needs. We're a
           small team of music lovers and sound specialists who are devoted to

@@ -10,6 +10,7 @@ import {
   checkOutSectionVariant,
   checkOutModalVariant,
 } from '../AnimationVariants/variants';
+import { getImageUrl } from '../utils/helpers';
 
 const CheckoutModal = () => {
   const {
@@ -62,7 +63,7 @@ const CheckoutModal = () => {
                     <li key={uuid()} className={style['modal__item']}>
                       <img
                         className={style['modal__image']}
-                        src={image}
+                        src={getImageUrl(image)}
                         alt={name}
                       />
                       <div className={style['modal__product']}>
