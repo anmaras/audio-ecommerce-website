@@ -6,6 +6,7 @@ import { formatPrice, splitText } from '../utils/helpers';
 import { useCartContext } from '../context/cart_context';
 import { useMenuCartContext } from '../context/menu_cart_context';
 import { getImageUrl, scrollToTop } from '../utils/helpers';
+import { motion } from 'framer-motion';
 
 const Product = ({ product }) => {
   const { addToCart } = useCartContext();
@@ -23,18 +24,20 @@ const Product = ({ product }) => {
   return (
     <>
       <div className={style.product}>
-        <Pictures
-          desktop={product?.image?.desktop}
-          tablet={product?.image?.tablet}
-          mobile={product?.image?.mobile}
-          widthMob="654"
-          heightMob="654"
-          widthTab="562"
-          heightTab="960"
-          widthDesk="1080"
-          heightDesk="1120"
-          alt={`${product?.name} image`}
-        />
+        <motion.div initial={{ scaleX: 0 }} animate={{ scaleX: 1 }}>
+          <Pictures
+            desktop={product?.image?.desktop}
+            tablet={product?.image?.tablet}
+            mobile={product?.image?.mobile}
+            widthMob="654"
+            heightMob="654"
+            widthTab="562"
+            heightTab="960"
+            widthDesk="1080"
+            heightDesk="1120"
+            alt={`${product?.name} image`}
+          />
+        </motion.div>
         <div className={style['product__textWrapper']}>
           <p className="overline">new product</p>
           <h2 className={style['product__title']}>{product?.name}</h2>
