@@ -41,7 +41,7 @@ const cart_reducer = (state, action) => {
 
   if (action.type === TOGGLE_CART_ITEM_AMOUNT) {
     const { id, value } = action.payload;
-    /* make a temp array and depend the value add or remove from the 
+    /* make a temp array and depends the value add or remove from the 
     cart item amount  */
     const tempCart = state.cart
       .map((item) => {
