@@ -30,5 +30,5 @@ export const formatName = (name) => {
 };
 
 export const scrollToTop = () => {
-  setTimeout(() => window.scrollTo({ top: 0, behavior: 'smooth' }), 0);
+  setTimeout(() => window.scrollTo({ top: 0, behavior: 'smooth' }), 500);
 };
