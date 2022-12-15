@@ -40,15 +40,7 @@ const NewProduct = () => {
             height="1000"
           />
         </motion.picture>
-        <motion.div
-          className={style['newProduct__textWrapper']}
-          initial={{ x: '-20px', opacity: 0 }}
-          animate={{
-            x: 0,
-            opacity: 1,
-            transition: { type: 'tween', ease: 'easeInOut', duration: 1 },
-          }}
-        >
+        <div className={style['newProduct__textWrapper']}>
           <p className={[style['newProduct__overline '], 'overline'].join(' ')}>
             new product
           </p>
@@ -67,7 +59,7 @@ const NewProduct = () => {
           >
             see product
           </Link>
-        </motion.div>
+        </div>
       </div>
     </section>
   );
