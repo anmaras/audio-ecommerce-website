@@ -10,7 +10,7 @@ import {
   checkOutSectionVariant,
   checkOutModalVariant,
 } from '../AnimationVariants/variants';
-import { getImageUrl } from '../utils/helpers';
+import { getImageUrl, scrollToTop } from '../utils/helpers';
 
 const CheckoutModal = () => {
   const {
@@ -93,7 +93,14 @@ const CheckoutModal = () => {
               </div>
             </dir>
           </div>
-          <Link className="button-1" to="/" onClick={clearCart}>
+          <Link
+            className="button-1"
+            to="/"
+            onClick={() => {
+              clearCart();
+              scrollToTop();
+            }}
+          >
             back to home
           </Link>
         </m.section>
