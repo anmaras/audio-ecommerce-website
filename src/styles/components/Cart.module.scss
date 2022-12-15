@@ -3,23 +3,18 @@
 
 .cart {
   position: fixed;
-  top: 0;
   left: 50%;
   transform: translate(-50%);
   z-index: 100;
-
   display: grid;
-
   @include width-center(rem(1220), rem(45));
 
   &__wrapper {
     background-color: var(--white);
-
     justify-self: flex-end;
     align-self: start;
-
     position: relative;
-    top: rem(116);
+    top: rem(139);
     z-index: 999;
     padding: rem(32);
     max-height: calc(100vh - rem(140));
@@ -31,6 +26,10 @@
     overflow: auto;
 
     border-radius: var(--border-radius);
+
+    @include breakpoint(xlarge) {
+      top: rem(119);
+    }
   }
 
   &__header {

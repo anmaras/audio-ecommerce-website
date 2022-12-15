@@ -12,6 +12,7 @@
 .main {
   background-color: var(--light-grey);
   overflow: hidden;
+
   &__homePageWrapper,
   &__productsPageWrapper {
     @include width-center(rem(1220), rem(45));

@@ -1,0 +1,18 @@
+@use '../utils' as *;
+@use '../globals/' as *;
+
+.error404 {
+  background-color: var(--light-grey);
+  height: 100%;
+  color: var(--black);
+  display: grid;
+  place-content: center;
+
+  &__wrapper {
+    background-color: transparent;
+    padding: rem(50);
+    border-radius: var(--border-radius);
+    display: grid;
+    gap: rem(24);
+  }
+}
