@@ -3,8 +3,8 @@ import { Error404 } from '../components';
 
 export default function ErrorPage() {
   return (
-    <div>
+    <main className="main__error">
       <Error404 />
-    </div>
+    </main>
   );
 }
