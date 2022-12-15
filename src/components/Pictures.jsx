@@ -41,6 +41,7 @@ const Pictures = ({
         className={style['picture__img']}
         width={widthMob}
         height={heightMob}
+        loading="lazy"
       />
     </picture>
   );

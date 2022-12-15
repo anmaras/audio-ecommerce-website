@@ -31,6 +31,7 @@ const About = () => {
           alt="man listening to music with headphones"
           width="654"
           height="600"
+          loading="lazy"
         />
       </picture>
       <div className={style['about__text-wrapper']}>
