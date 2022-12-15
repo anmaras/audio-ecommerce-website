@@ -9,27 +9,32 @@ import {
 import { useParams } from 'react-router-dom';
 import { useFetchCategories } from '../hooks/useFetchCategories';
 import { motion } from 'framer-motion';
+import ErrorPage from './ErrorPage';
 
 export default function ProductsPage() {
   const { category } = useParams();
-  const { isLoading, data } = useFetchCategories(category);
+  const { isLoading, data, isError } = useFetchCategories(category);
+
+  if (isError || data?.length === 0) {
+    return <ErrorPage />;
+  }
+
+  if (isLoading) {
+    return <Spinner />;
+  }
 
   return (
     <main className="main categories">
       <PageHero category={category} />
-      {isLoading ? (
-        <Spinner />
-      ) : (
-        <motion.section
-          className="main__productsPageWrapper"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-        >
-          <ProductsCategories data={data} />
-          <MenuList />
-          <About />
-        </motion.section>
-      )}
+      <motion.section
+        className="main__productsPageWrapper"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+      >
+        <ProductsCategories data={data} />
+        <MenuList />
+        <About />
+      </motion.section>
     </main>
   );
 }

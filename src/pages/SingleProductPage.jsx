@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {
   Product,
   MenuList,
@@ -6,14 +6,25 @@ import {
   About,
   Spinner,
 } from '../components/index';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { useFetchProduct } from '../hooks/useFetchProduct';
 import { motion } from 'framer-motion';
+import ErrorPage from './ErrorPage';
 
 export default function SingleProductPage() {
   const { id } = useParams();
+  const navigate = useNavigate();
+  const { data: product, isLoading, isError } = useFetchProduct(id);
 
-  const { data: product, isLoading } = useFetchProduct(id);
+  useEffect(() => {
+    if (!isLoading && product === undefined) {
+      navigate('/404', { replace: true });
+    }
+  }, [id, isLoading]);
+
+  if (isError) {
+    return <ErrorPage />;
+  }
 
   if (isLoading) {
     return <Spinner />;
