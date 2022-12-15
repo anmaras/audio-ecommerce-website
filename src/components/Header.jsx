@@ -19,10 +19,10 @@ const Header = () => {
             toggle={toggleMenu}
             toggled={isMenuOpen}
             onToggle={closeCart}
-            className={style['header__hamburger']}
             color="#ffffff"
             distance="sm"
             size={20}
+            label="Show menu"
           />
         </div>
         <Logo className={style['header__log']} />
