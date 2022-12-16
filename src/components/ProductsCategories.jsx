@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import style from '../styles/components/ProductsCategories.module.scss';
 import { Pictures } from '../components/index';
-import { scrollToTop } from '../utils/helpers';
 import { motion } from 'framer-motion';
 
 const ProductsList = ({ data }) => {
@@ -44,11 +43,7 @@ const ProductsList = ({ data }) => {
                 <p className={style['categories__description']}>
                   {description}
                 </p>
-                <Link
-                  className="button-1"
-                  to={`/products/${category}/${slug}`}
-                  onClick={scrollToTop}
-                >
+                <Link className="button-1" to={`/products/${category}/${slug}`}>
                   see product
                 </Link>
               </div>

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { links } from '../utils/constants';
 import buttonImgUrl from '../assets/shared/desktop/icon-arrow-right.svg';
 import style from '../styles/components/MenuList.module.scss';
-import { getImageUrl, scrollToTop } from '../utils/helpers';
+import { getImageUrl } from '../utils/helpers';
 import { useMenuCartContext } from '../context/menu_cart_context';
 
 const MenuList = () => {
@@ -17,14 +17,7 @@ const MenuList = () => {
           return (
             <li key={id} className={style['menuList__link']}>
               <div className={style['menuList__bg']}></div>
-              <Link
-                className="router-link"
-                to={url}
-                onClick={() => {
-                  closeMenu();
-                  scrollToTop();
-                }}
-              >
+              <Link className="router-link" to={url} onClick={closeMenu}>
                 <img
                   className={style['menuList__thumbnail']}
                   src={getImageUrl(thumbnail)}

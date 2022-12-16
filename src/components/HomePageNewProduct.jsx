@@ -5,7 +5,6 @@ import desktopUrl from '../assets/home/desktop/image-hero.jpg';
 import { Link } from 'react-router-dom';
 import style from '../styles/components/HomePageNewProduct.module.scss';
 import { motion } from 'framer-motion';
-import { scrollToTop } from '../utils/helpers';
 
 const NewProduct = () => {
   return (
@@ -53,7 +52,6 @@ const NewProduct = () => {
             made for the passionate music enthusiast.
           </p>
           <Link
-            onClick={scrollToTop}
             className="button-1"
             to={'products/headphones/xx99-mark-two-headphones'}
           >

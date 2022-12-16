@@ -3,7 +3,7 @@ import { Pictures } from '../components';
 import { previewProducts } from '../utils/constants';
 import { Link } from 'react-router-dom';
 import style from '../styles/components/ProductsPreviews.module.scss';
-import { getImageUrl, scrollToTop } from '../utils/helpers';
+import { getImageUrl } from '../utils/helpers';
 
 const ProductsPreviews = () => {
   return (
@@ -60,7 +60,6 @@ const ProductsPreviews = () => {
                     {description}
                   </p>
                   <Link
-                    onClick={scrollToTop}
                     className={[style['homepage__button'], 'button-2'].join(
                       ' '
                     )}
@@ -75,7 +74,6 @@ const ProductsPreviews = () => {
                     {title} {category}
                   </h4>
                   <Link
-                    onClick={scrollToTop}
                     className={[style['homepage__button'], 'button-2'].join(
                       ' '
                     )}

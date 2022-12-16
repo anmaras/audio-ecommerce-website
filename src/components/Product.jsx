@@ -5,7 +5,7 @@ import style from '../styles/components/Product.module.scss';
 import { formatPrice, splitText } from '../utils/helpers';
 import { useCartContext } from '../context/cart_context';
 import { useMenuCartContext } from '../context/menu_cart_context';
-import { getImageUrl, scrollToTop } from '../utils/helpers';
+import { getImageUrl } from '../utils/helpers';
 import { motion } from 'framer-motion';
 
 const Product = ({ product }) => {
@@ -161,11 +161,7 @@ const Product = ({ product }) => {
                   />
                 </picture>
                 <h5>{name}</h5>
-                <Link
-                  to={`/products/${category}/${slug}`}
-                  className="button-1"
-                  onClick={scrollToTop}
-                >
+                <Link to={`/products/${category}/${slug}`} className="button-1">
                   see product
                 </Link>
               </li>
