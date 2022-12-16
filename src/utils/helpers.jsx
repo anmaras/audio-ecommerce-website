@@ -1,3 +1,6 @@
+import { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
+
 export const getImageUrl = (name) => {
   if (name) {
     return new URL(`../${name.substring(2)}`, import.meta.url).href;
@@ -29,6 +32,16 @@ export const formatName = (name) => {
   }
 };
 
-export const scrollToTop = () => {
-  setTimeout(() => window.scrollTo({ top: 0, behavior: 'smooth' }), 500);
+export const ScrollToTopOnMount = ({ path }) => {
+  const { pathname } = useLocation();
+
+  if (path === pathname) {
+    return window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, [pathname]);
+
+  return null;
 };
