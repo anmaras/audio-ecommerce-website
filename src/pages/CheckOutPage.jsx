@@ -4,6 +4,7 @@ import { GoBackButton, FormContainer } from '../components';
 import { useCartContext } from '../context/cart_context';
 import { useNavigate } from 'react-router-dom';
 import { useMenuCartContext } from '../context/menu_cart_context';
+import { ScrollToTopOnMount } from '../utils/helpers';
 
 export default function CheckOutPage() {
   const { closeCart } = useMenuCartContext();
@@ -23,6 +24,7 @@ export default function CheckOutPage() {
 
   return (
     <main className="main checkout">
+      <ScrollToTopOnMount />
       <GoBackButton />
       <section className="main__checkoutPageWrapper">
         <FormContainer />

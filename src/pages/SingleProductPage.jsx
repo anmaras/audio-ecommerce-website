@@ -10,6 +10,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { useFetchProduct } from '../hooks/useFetchProduct';
 import { motion } from 'framer-motion';
 import ErrorPage from './ErrorPage';
+import { ScrollToTopOnMount } from '../utils/helpers';
 
 export default function SingleProductPage() {
   const { id } = useParams();
@@ -31,6 +32,7 @@ export default function SingleProductPage() {
   }
   return (
     <main className="main singleProduct">
+      <ScrollToTopOnMount />
       <GoBackButton />
       <motion.section
         className="main__productPageWrapper"
