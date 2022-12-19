@@ -32,15 +32,11 @@ export const formatName = (name) => {
   }
 };
 
-export const ScrollToTopOnMount = ({ path }) => {
+export const ScrollToTopOnMount = () => {
   const { pathname } = useLocation();
 
-  if (path === pathname) {
-    return window.scrollTo({ top: 0, behavior: 'smooth' });
-  }
-
   useEffect(() => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({ top: 0 });
   }, [pathname]);
 
   return null;
