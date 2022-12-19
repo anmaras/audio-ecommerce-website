@@ -4,8 +4,7 @@
 .spinner {
   background-color: var(--light-grey);
   z-index: 100;
-  height: calc(100vh - rem(90));
-  min-height: 100%;
+  height: 5000px;
   display: grid;
   place-content: center;
 }
