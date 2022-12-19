@@ -30,6 +30,7 @@ export default function SingleProductPage() {
   if (isLoading) {
     return <Spinner />;
   }
+
   return (
     <main className="main singleProduct">
       <ScrollToTopOnMount />

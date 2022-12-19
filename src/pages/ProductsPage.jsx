@@ -15,7 +15,6 @@ import { ScrollToTopOnMount } from '../utils/helpers';
 export default function ProductsPage() {
   const { category } = useParams();
   const { isLoading, data, isError } = useFetchCategories(category);
-  const { pathname } = useLocation();
 
   if (isError || data?.length === 0) {
     return <ErrorPage />;
@@ -27,7 +26,7 @@ export default function ProductsPage() {
 
   return (
     <main className="main categories">
-      <ScrollToTopOnMount path={pathname} />
+      <ScrollToTopOnMount />
       <PageHero category={category} />
       <motion.section
         className="main__productsPageWrapper"
