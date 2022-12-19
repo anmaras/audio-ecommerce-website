@@ -7,7 +7,6 @@ import { CheckOutPage } from './pages';
 const Home = lazy(() => import('./pages/HomePage'));
 const Categories = lazy(() => import('./pages/ProductsPage'));
 const Product = lazy(() => import('./pages/SingleProductPage'));
-// const CheckOut = lazy(() => import('./pages/CheckOutPage'));
 const Error = lazy(() => import('./pages/ErrorPage'));
 
 const AnimateRoutes = () => {
