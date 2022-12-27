@@ -9,7 +9,9 @@ const fetchProducts = () => {
 export const useFetchCategories = (category) => {
   return useQuery(['category', category], fetchProducts, {
     select: (data) =>
-      data.data.filter((product) => product.category === category),
+      data.data
+        .filter((product) => product.category === category)
+        .sort((x, y) => y.new - x.new),
     staleTime: 300000,
   });
 };
