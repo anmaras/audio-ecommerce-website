@@ -6,7 +6,7 @@ import {
   Spinner,
   PageHero,
 } from '../components/index';
-import { useParams, useLocation } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { useFetchCategories } from '../hooks/useFetchCategories';
 import { motion } from 'framer-motion';
 import ErrorPage from './ErrorPage';
