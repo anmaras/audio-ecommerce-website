@@ -55,10 +55,7 @@ Users should be able to:
 
 ### What I learned
 
-This project was a big test for myself because i wanted to create something complex as a e-commerce website.
-My goals were to follow and be precise with the figma design provided by FrontEnd Mentor as much as possible while using mobile first workflow, to setup my styling with Sass and to integrate libraries like React Router, Axios and React Query to fetch data from Firebase.
-Set up the state management with the help of the ContextApi and Reducer hook, handling images and avoiding as much as possible any layout shift.
-And finally to learn how to use Formik and Yup for my form setup and validation.
+This project was a big test for me because I wanted to create something complex like an e-commerce website. My goals were to follow and be precise with the Figma design as much as possible while using mobile-first workflow, to set up my styling with Sass and to integrate libraries like React Router, Axios and React Query to fetch data from Firebase. Set up the state management with the help of the ContextApi and Reducer hook, handling images and avoiding any layout shift. And finally, to learn how to use Formik and Yup for my form setup and validation.
 
 ### Continued development
 
