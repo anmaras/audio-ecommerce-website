@@ -61,4 +61,3 @@ This project was a big test for me because I wanted to create something complex 
 
 - Create unit and integration tests with Jest/React-Testing-Library.
 - Optimize user experience.
-- Write quality code.
